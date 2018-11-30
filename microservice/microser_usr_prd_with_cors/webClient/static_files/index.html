@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MEAN is best</title>
+	<script
+  		src="https://code.jquery.com/jquery-1.12.4.min.js"
+  		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  		crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  	
+  	$(document).ready(function(){
+  		$('#get-users').click(function(){
+  			console.log('get users clicked');
+  			var url = "http://localhost:3001/api/users";
+  			var cb = getUsersCallback;
+  			getUsers(url, cb);
+  		});
+  	});
+
+  	$(document).ready(function(){
+  		$('#get-products').click(function(){
+  			console.log('get Products clicked');
+  			var url = "http://localhost:3002/api/products";
+  			var cb = getProductsCallback;
+  			getUsers(url, cb);
+  		});
+  	});
+
+  	// generic callback 
+  	function getUsers(url, cb){
+  			//url: "http://localhost:3001/api/users", 
+  		    $.ajax({
+  		    		type: "GET",
+  		    		url: url, 
+  		    		dataType: "json",
+  		    		success: function(result){
+        				console.log(result);
+        				//$('#result-users').text(result.data);   //result.users[0].name);
+        				cb(result);
+    				},
+    				fail: function(){
+    					console.log('error');
+    				},
+    				error: function(err){
+    					console.log(err);
+    					errorCallback(err, url);
+    				}
+    		});
+  	}
+
+
+  	function getUsersCallback(result){
+		$('#result-users').text(result.data);   //result.users[0].name);
+  	}
+
+
+	function getProductsCallback(result){
+		$('#result-products').text(result.data);
+	}
+
+
+	function errorCallback(err, url){
+		var desc = err.status + "-" + err.statusText;
+		if (err.status === 0){
+			desc += ": connection to the api is lost - " + url;
+		}
+		$('#result-errors').append('<br />' + desc);
+	}
+
+  </script>
+
+
+</head>
+<body>
+
+  <h1>Express - index!</h1>
+  <p>MServices test-consume two apis from two different domains split as services</p>
+  <p>Ensure servies are running (node server)</p>
+
+  <div>
+  	<button id='get-users'>Get Users</button>
+  	<div id='result-users'>
+  		result..
+  	</div>
+  </div>
+  <hr />
+
+  <div>
+  	<button id='get-products'>Get Products</button>
+  	<div id='result-products'>
+  		result..
+  	</div>
+  </div>
+  <hr />
+
+  <br /><br />
+  <div>
+  	<div>MS Service errors</div>
+  	<div id='result-errors'>
+  		
+  	</div>
+  </div>
+
+
+</body>
+</html>

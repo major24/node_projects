@@ -1,0 +1,29 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightcyan;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h2 {
+  color: green;
+}
+
+.div-spc {
+  padding-bottom: 10px;
+}
+
+.fld-label {
+  color: blue;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.fld-value {
+  color: maroon;
+  font-size: 12pt;
+  font-weight: bold;
+}

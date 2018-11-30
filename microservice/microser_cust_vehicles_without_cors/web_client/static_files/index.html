@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API access without cors</title>
+	<script
+  		src="https://code.jquery.com/jquery-1.12.4.min.js"
+  		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  		crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+
+    var host = window.location.host;
+    var protocol = window.location.protocol;
+    var url = protocol + "://" + host;
+
+    $(document).ready(function(){
+      $('#get-test').click(function(){
+        console.log('get test clicked at ' + url);
+        var url = "/api/customer-domain/test";
+        var cb = getTestCallback;
+        getAjax(url, cb);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#get-customers').click(function(){
+        console.log('get customers clicked at ' + url);
+        var customersUrl = "/api/customers";
+        var cb = getCustomersCallback;
+        getAjax(customersUrl, cb);
+      });
+    });
+
+
+
+    $(document).ready(function(){
+      $('#get-test-vehicle').click(function(){
+        console.log('get test vehicles clicked at ' + url);
+        var url = "/api/vehicle-domain/test";
+        var cb = getTestVehicleCallback;
+        getAjax(url, cb);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#get-vehicles').click(function(){
+        console.log('get vehicles clicked');
+        var url = "/api/vehicles";
+        var cb = getVehiclesCallback;
+        getAjax(url, cb);
+      });
+    });
+
+    // generic callback 
+    function getAjax(url, cb){
+        //url: "http://localhost:3001/api/customers"  // CORS
+          $.ajax({
+              type: "GET",
+              url: url, 
+              dataType: "json",
+              success: function(result){
+                console.log(result);
+                //$('#result-customers').text(result);   
+                cb(result);
+            },
+            fail: function(){
+              console.log('error');
+            },
+            error: function(err){
+              console.log(err);
+              errorCallback(err, url);
+            }
+        });
+    }
+
+
+
+  function getTestCallback(result){
+    $('#result-test').text(result);
+  }
+
+  function getCustomersCallback(result){
+    $('#result-customers').text(result);   //result.users[0].name);
+  }
+
+
+  function getTestVehicleCallback(result){
+    $('#result-test-vehicle').text(result);
+  }
+
+  function getVehiclesCallback(result){
+    $('#result-vehicles').text(result);
+  }
+
+
+  function errorCallback(err, url){
+    var desc = err.status + "-" + err.statusText;
+    if (err.status === 0){
+      desc += ": connection to the api is lost - " + url;
+    }
+    $('#result-errors').append('<br />' + desc);
+  } 	
+
+
+  </script>
+
+
+</head>
+<body>
+
+  <h2>Express - index!</h2>
+  <p>MServices test-consume two apis from two different domains split as services</p>
+  <h3>Without CORS-Api access via server</h3>
+  <p>Ensure servies are running (node server)</p>
+
+  <div>
+    <button id='get-test'>Get Test Date - CustDomain</button>
+    <div id='result-test'>
+      result..
+    </div>
+  </div>
+  <hr />
+
+  <div>
+  	<button id='get-customers'>Get Customers</button>
+  	<div id='result-customers'>
+  		result..
+  	</div>
+  </div>
+  <hr />
+
+  <div>
+    <button id='get-test-vehicle'>Get Test Date - VehicleDomain</button>
+    <div id='result-test-vehicle'>
+      result..
+    </div>
+  </div>
+  <hr />
+
+  <div>
+  	<button id='get-vehicles'>Get Vehicles</button>
+  	<div id='result-vehicles'>
+  		result..
+  	</div>
+  </div>
+  <hr />
+
+  <br /><br />
+  <div>
+  	<div>MS Service errors</div>
+  	<div id='result-errors'>
+  		
+  	</div>
+  </div>
+
+
+</body>
+</html>

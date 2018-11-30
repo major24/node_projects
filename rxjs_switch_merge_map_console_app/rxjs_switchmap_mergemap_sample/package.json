@@ -1,0 +1,34 @@
+{
+  "name": "node-typescript-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch & nodemon dist",
+    "test": "tsc && mocha dist/**/*.spec.js",
+    "lint": "eslint src --ext ts",
+    "tsc": "tsc",
+    "serve": "node dist/index",
+    "console": "node dist/console-app/index-console"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^7.0.22",
+    "express": "^4.15.3",
+    "rxjs": "^6.2.2",
+    "supertest": "^3.1.0",
+    "typescript": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.22",
+    "eslint": "4.0.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "mocha": "3.4.2",
+    "typescript-eslint-parser": "^3.0.0"
+  }
+}

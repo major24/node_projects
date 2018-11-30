@@ -1,0 +1,23 @@
+{
+  "name": "tdd-mocha-chai",
+  "version": "1.0.0",
+  "description": "test tdd",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5",
+    "should": "^7.0.2",
+    "sinon": "^2.1.0",
+    "supertest": "^3.0.0"
+  }
+}

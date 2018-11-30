@@ -1,0 +1,22 @@
+{
+  "name": "mytestoncodingchallange",
+  "version": "1.0.0",
+  "description": "test with chai",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies":{
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5",
+    "supertest": "^3.0.0",
+    "should": "^7.0.2"
+  }
+}
+

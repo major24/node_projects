@@ -1,0 +1,35 @@
+// HELP tdd with nodejs
+
+https://mochajs.org/#getting-started
+
+https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
+
+
+
+steps
+	install mocha and chai, using 'assert' from node js, so no need to install assert
+	update package json with test node:
+		"test": "./node_modules/.bin/mocha --reporter spec",
+
+to run
+	navigate to test folder and run
+		c:\node_projects\api_tdd_mocha_chai\test>    npm test
+
+
+to test Api **
+http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/#.WPC7fWnyvIU
+https://www.npmjs.com/package/supertest
+
+https://codeforgeek.com/2015/07/unit-testing-nodejs-application-using-mocha/
+
+install 
+using "supertest" and "should" pkgs to test api responses..
+
+to run api
+	open a command line and run server.js    // for api
+
+to test api
+	> npm test  // in the respective folder
+
+
+

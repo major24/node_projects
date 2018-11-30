@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WC-Simple Popup</title>
+    <script src="../javascripts/simple-display-wservice.js"></script>
+    <script>
+
+    </script>
+    
+  </head>
+  <body>
+    <h3><%= title %></h3>
+    <hr />
+    <section id="container">
+       <button type="button">Create</button>
+       <button type="button" id="sayHelloBtn">Say Hello</button>
+    </section>
+    <script type="module">
+       import {getDataFromService} from "../javascripts/module-simple-util.js";
+       let srv = getDataFromService;
+       function getData() {
+        console.log('ddddd');
+        srv('aaa');
+       }
+      document.querySelector("#sayHelloBtn").addEventListener("click", e => {
+        getData();
+      });
+    </script>
+
+    <simple-display-wservice
+            id="sp1">
+    </simple-display-wservice>
+    
+    <script>
+
+    </script>
+  </body>
+</html>
