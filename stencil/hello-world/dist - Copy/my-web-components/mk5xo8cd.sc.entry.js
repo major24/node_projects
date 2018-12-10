@@ -1,0 +1,1 @@
+const e=window.MyWebComponents.h;class t{render(){return e("h1",null,"Hello World!")}static get is(){return"hello-world"}static get encapsulation(){return"shadow"}}export{t as HelloWorld};

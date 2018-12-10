@@ -1,0 +1,15 @@
+{
+  "namespace": "MnApp",
+  "fsNamespace": "mn-app",
+  "loader": "../mn-app.js",
+  "core": "mn-app.jt3swl6h.js",
+  "corePolyfilled": "mn-app.kp54742g.js",
+  "components": {
+    "hello-world": {
+      "bundleIds": {
+        "$": "37lqnonz"
+      },
+      "encapsulation": "shadow"
+    }
+  }
+}

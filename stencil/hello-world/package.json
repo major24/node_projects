@@ -1,0 +1,26 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/my-web-components.js",
+  "browser": "dist/my-web-components.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "stencil build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stencil/core": "^0.16.0",
+    "@stencil/sass": "^0.1.1"
+  },
+  "devDependencies": {
+    "@stencil/utils": "0.0.5"
+  }
+}
