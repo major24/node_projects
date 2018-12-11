@@ -6,7 +6,6 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
  <title>Demo</title>
- <!-- <script src="../../stencil/hello-world/dist/my-web-components.js"></script> -->
  <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
 
 
@@ -15,6 +14,11 @@
 <body>
  <hello-world id='hw' name="Major"></hello-world>
  <hr />
+
+ <span>Name: <input type="text" id="name" value="Roger" /></span>
+ <button onclick="updateName()">update name</button>
+ <hr />
+
  <span>access web comp method..</span>
  <button onclick="showMsg()">show prompt in webcomp</button>
 
@@ -23,6 +27,11 @@
         function showMsg() {
             const el = document.getElementById('hw');
             el.showPrompt();
+        }
+
+        function updateName() {
+            const el = document.getElementById('hw');
+            el.setAttribute('name', document.getElementById('name').value);
         }
     </script>
 </body>

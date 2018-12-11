@@ -2,12 +2,12 @@
   "namespace": "MnApp",
   "fsNamespace": "mn-app",
   "loader": "../mn-app.js",
-  "core": "mn-app.jt3swl6h.js",
-  "corePolyfilled": "mn-app.kp54742g.js",
+  "core": "mn-app.k4bqxcpu.js",
+  "corePolyfilled": "mn-app.h96fnpqv.js",
   "components": {
     "hello-world": {
       "bundleIds": {
-        "$": "37lqnonz"
+        "$": "6uvghacl"
       },
       "encapsulation": "shadow"
     }
