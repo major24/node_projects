@@ -12,24 +12,224 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface CtxAddressContainer {
+    '_editing': string;
+    'addresses': string;
+  }
+  interface CtxAddressContainerAttributes extends StencilHTMLAttributes {
+    '_editing'?: string;
+    'addresses'?: string;
+  }
+
+  interface CtxAddressEdit {
+    'address': string;
+  }
+  interface CtxAddressEditAttributes extends StencilHTMLAttributes {
+    'address'?: string;
+  }
+
+  interface CtxAddressEditableContainer {
+    '_editing': string;
+    'addresses': string;
+    'cssToggle': string;
+  }
+  interface CtxAddressEditableContainerAttributes extends StencilHTMLAttributes {
+    '_editing'?: string;
+    'addresses'?: string;
+    'cssToggle'?: string;
+  }
+
+  interface CtxAddressTest {
+    'cssToggle': string;
+    'name': string;
+  }
+  interface CtxAddressTestAttributes extends StencilHTMLAttributes {
+    'cssToggle'?: string;
+    'name'?: string;
+    'onSearchStarted'?: (event: CustomEvent) => void;
+  }
+
+  interface CtxAddress {
+    'address': string;
+  }
+  interface CtxAddressAttributes extends StencilHTMLAttributes {
+    'address'?: string;
+  }
+
+  interface AuthorBookContainer {
+    'data': string;
+  }
+  interface AuthorBookContainerAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface AuthorComp {
+    'name': string;
+  }
+  interface AuthorCompAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
+  interface AuthorEdit {
+    'name': string;
+  }
+  interface AuthorEditAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+    'onOnUpdate'?: (event: CustomEvent) => void;
+  }
+
+  interface BookComp {
+    'title': string;
+  }
+  interface BookCompAttributes extends StencilHTMLAttributes {
+    'title'?: string;
+  }
+
+  interface ChildComponentOne {
+    'name': string;
+  }
+  interface ChildComponentOneAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
+  interface ParentChildContainer {
+    'name': string;
+  }
+  interface ParentChildContainerAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
+  interface ParentComponent {
+    'name': string;
+  }
+  interface ParentComponentAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
   interface HelloWorld {
     'name': string;
     'showPrompt': () => void;
   }
   interface HelloWorldAttributes extends StencilHTMLAttributes {
     'name'?: string;
+    'onSearchStarted'?: (event: CustomEvent) => void;
+  }
+
+  interface PropStateTest {
+    'nameProp': string;
+  }
+  interface PropStateTestAttributes extends StencilHTMLAttributes {
+    'nameProp'?: string;
   }
 }
 
 declare global {
   interface StencilElementInterfaces {
+    'CtxAddressContainer': Components.CtxAddressContainer;
+    'CtxAddressEdit': Components.CtxAddressEdit;
+    'CtxAddressEditableContainer': Components.CtxAddressEditableContainer;
+    'CtxAddressTest': Components.CtxAddressTest;
+    'CtxAddress': Components.CtxAddress;
+    'AuthorBookContainer': Components.AuthorBookContainer;
+    'AuthorComp': Components.AuthorComp;
+    'AuthorEdit': Components.AuthorEdit;
+    'BookComp': Components.BookComp;
+    'ChildComponentOne': Components.ChildComponentOne;
+    'ParentChildContainer': Components.ParentChildContainer;
+    'ParentComponent': Components.ParentComponent;
     'HelloWorld': Components.HelloWorld;
+    'PropStateTest': Components.PropStateTest;
   }
 
   interface StencilIntrinsicElements {
+    'ctx-address-container': Components.CtxAddressContainerAttributes;
+    'ctx-address-edit': Components.CtxAddressEditAttributes;
+    'ctx-address-editable-container': Components.CtxAddressEditableContainerAttributes;
+    'ctx-address-test': Components.CtxAddressTestAttributes;
+    'ctx-address': Components.CtxAddressAttributes;
+    'author-book-container': Components.AuthorBookContainerAttributes;
+    'author-comp': Components.AuthorCompAttributes;
+    'author-edit': Components.AuthorEditAttributes;
+    'book-comp': Components.BookCompAttributes;
+    'child-component-one': Components.ChildComponentOneAttributes;
+    'parent-child-container': Components.ParentChildContainerAttributes;
+    'parent-component': Components.ParentComponentAttributes;
     'hello-world': Components.HelloWorldAttributes;
+    'prop-state-test': Components.PropStateTestAttributes;
   }
 
+
+  interface HTMLCtxAddressContainerElement extends Components.CtxAddressContainer, HTMLStencilElement {}
+  var HTMLCtxAddressContainerElement: {
+    prototype: HTMLCtxAddressContainerElement;
+    new (): HTMLCtxAddressContainerElement;
+  };
+
+  interface HTMLCtxAddressEditElement extends Components.CtxAddressEdit, HTMLStencilElement {}
+  var HTMLCtxAddressEditElement: {
+    prototype: HTMLCtxAddressEditElement;
+    new (): HTMLCtxAddressEditElement;
+  };
+
+  interface HTMLCtxAddressEditableContainerElement extends Components.CtxAddressEditableContainer, HTMLStencilElement {}
+  var HTMLCtxAddressEditableContainerElement: {
+    prototype: HTMLCtxAddressEditableContainerElement;
+    new (): HTMLCtxAddressEditableContainerElement;
+  };
+
+  interface HTMLCtxAddressTestElement extends Components.CtxAddressTest, HTMLStencilElement {}
+  var HTMLCtxAddressTestElement: {
+    prototype: HTMLCtxAddressTestElement;
+    new (): HTMLCtxAddressTestElement;
+  };
+
+  interface HTMLCtxAddressElement extends Components.CtxAddress, HTMLStencilElement {}
+  var HTMLCtxAddressElement: {
+    prototype: HTMLCtxAddressElement;
+    new (): HTMLCtxAddressElement;
+  };
+
+  interface HTMLAuthorBookContainerElement extends Components.AuthorBookContainer, HTMLStencilElement {}
+  var HTMLAuthorBookContainerElement: {
+    prototype: HTMLAuthorBookContainerElement;
+    new (): HTMLAuthorBookContainerElement;
+  };
+
+  interface HTMLAuthorCompElement extends Components.AuthorComp, HTMLStencilElement {}
+  var HTMLAuthorCompElement: {
+    prototype: HTMLAuthorCompElement;
+    new (): HTMLAuthorCompElement;
+  };
+
+  interface HTMLAuthorEditElement extends Components.AuthorEdit, HTMLStencilElement {}
+  var HTMLAuthorEditElement: {
+    prototype: HTMLAuthorEditElement;
+    new (): HTMLAuthorEditElement;
+  };
+
+  interface HTMLBookCompElement extends Components.BookComp, HTMLStencilElement {}
+  var HTMLBookCompElement: {
+    prototype: HTMLBookCompElement;
+    new (): HTMLBookCompElement;
+  };
+
+  interface HTMLChildComponentOneElement extends Components.ChildComponentOne, HTMLStencilElement {}
+  var HTMLChildComponentOneElement: {
+    prototype: HTMLChildComponentOneElement;
+    new (): HTMLChildComponentOneElement;
+  };
+
+  interface HTMLParentChildContainerElement extends Components.ParentChildContainer, HTMLStencilElement {}
+  var HTMLParentChildContainerElement: {
+    prototype: HTMLParentChildContainerElement;
+    new (): HTMLParentChildContainerElement;
+  };
+
+  interface HTMLParentComponentElement extends Components.ParentComponent, HTMLStencilElement {}
+  var HTMLParentComponentElement: {
+    prototype: HTMLParentComponentElement;
+    new (): HTMLParentComponentElement;
+  };
 
   interface HTMLHelloWorldElement extends Components.HelloWorld, HTMLStencilElement {}
   var HTMLHelloWorldElement: {
@@ -37,12 +237,44 @@ declare global {
     new (): HTMLHelloWorldElement;
   };
 
+  interface HTMLPropStateTestElement extends Components.PropStateTest, HTMLStencilElement {}
+  var HTMLPropStateTestElement: {
+    prototype: HTMLPropStateTestElement;
+    new (): HTMLPropStateTestElement;
+  };
+
   interface HTMLElementTagNameMap {
+    'ctx-address-container': HTMLCtxAddressContainerElement
+    'ctx-address-edit': HTMLCtxAddressEditElement
+    'ctx-address-editable-container': HTMLCtxAddressEditableContainerElement
+    'ctx-address-test': HTMLCtxAddressTestElement
+    'ctx-address': HTMLCtxAddressElement
+    'author-book-container': HTMLAuthorBookContainerElement
+    'author-comp': HTMLAuthorCompElement
+    'author-edit': HTMLAuthorEditElement
+    'book-comp': HTMLBookCompElement
+    'child-component-one': HTMLChildComponentOneElement
+    'parent-child-container': HTMLParentChildContainerElement
+    'parent-component': HTMLParentComponentElement
     'hello-world': HTMLHelloWorldElement
+    'prop-state-test': HTMLPropStateTestElement
   }
 
   interface ElementTagNameMap {
+    'ctx-address-container': HTMLCtxAddressContainerElement;
+    'ctx-address-edit': HTMLCtxAddressEditElement;
+    'ctx-address-editable-container': HTMLCtxAddressEditableContainerElement;
+    'ctx-address-test': HTMLCtxAddressTestElement;
+    'ctx-address': HTMLCtxAddressElement;
+    'author-book-container': HTMLAuthorBookContainerElement;
+    'author-comp': HTMLAuthorCompElement;
+    'author-edit': HTMLAuthorEditElement;
+    'book-comp': HTMLBookCompElement;
+    'child-component-one': HTMLChildComponentOneElement;
+    'parent-child-container': HTMLParentChildContainerElement;
+    'parent-component': HTMLParentComponentElement;
     'hello-world': HTMLHelloWorldElement;
+    'prop-state-test': HTMLPropStateTestElement;
   }
 
 

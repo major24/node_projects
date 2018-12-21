@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+ <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
+</head>
+
+<body>
+ <hello-world 
+        id='hw2' 
+        onSearchStarted='{ev =>this.searchStarted(ev)}'
+        name="Nalliah">
+</hello-world>
+ <hr />
+
+
+ <span>Name: <input type="text" id="name" value="Roger" /></span>
+ <button onclick="updateName()">update name</button>
+ <hr />
+
+
+    <script>
+        
+        function updateName() {
+            const el = document.getElementById('hw2');
+            el.setAttribute('name', document.getElementById('name').value);        
+        }
+
+        const myhw2 = document.getElementById('hw2');
+        myhw2.addEventListener('searchStarted', (event) => {
+                    console.log('in client js');
+                    console.log(event);
+                    console.log(event.detail);
+                });
+            
+    
+    </script>
+</body>
+
+</html>

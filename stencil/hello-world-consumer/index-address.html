@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+ <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
+</head>
+
+<body>
+
+ <ctx-address id="addr"
+        address='
+            {"addressLine1":"123 King Street", "city": "Toronto", "state": "Ontario", "postcode": "M1B 6T5"}
+            '>
+ </ctx-address>
+ <hr />
+
+ <button onclick="update()">update with timer</button>
+ <hr />
+
+
+    <script>
+        
+        function update() {         
+            // mock api call..
+            const el2 = document.getElementById('addr');
+            const address = '{"addressLine1":"899 Queen Street", "city": "Montreal", "state": "Quebec", "postcode": "Q4R 7Y6"}';
+            setTimeout(() => {
+                el2.setAttribute('address', address);
+            }, 1000);
+            
+        }  
+    
+    </script>
+</body>
+
+</html>

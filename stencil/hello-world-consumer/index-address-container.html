@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+ <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
+</head>
+
+<body>
+ <ctx-address-container id="addr-ctr"></ctx-address-container>
+ <hr />
+
+ <button onclick="update()">update with timer</button>
+ <hr />
+
+
+    <script>
+        
+        function update() {         
+            // mock api call..
+            const el2 = document.getElementById('addr-ctr');
+            //const address = '{"addressLine1":"9000 Edminton Street", "city": "Kinsley", "state": "Alberta", "postcode": "E5T 9Y6"}';
+            const addresses = `[
+                {"addressLine1":"9000 Edminton Street", "city": "Kinsley22", "state": "Alberta", "postcode": "E5T 9Y6"},
+                {"addressLine1":"876 Mahathma Street", "city": "James Town", "state": "Manitoba", "postcode": "E5T 9Y6"}
+            ]`;
+            console.log(addresses);
+            
+            setTimeout(() => {
+                el2.setAttribute('addresses', addresses);
+            }, 800);
+        } 
+
+        /*function update_old() {         
+            // mock api call..
+            const el2 = document.getElementById('addr-ctr');
+            const address = '{"addressLine1":"9000 Edminton Street", "city": "Kinsley", "state": "Alberta", "postcode": "E5T 9Y6"}';
+            setTimeout(() => {
+                el2.setAttribute('address', address);
+            }, 500);
+        }  */
+    
+    </script>
+</body>
+
+</html>

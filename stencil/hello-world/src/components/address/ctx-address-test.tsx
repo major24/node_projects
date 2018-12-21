@@ -1,24 +1,20 @@
-import { Component, Prop, Method, State } from '@stencil/core';
+import { Component, Prop, State } from '@stencil/core';
 import { Event, EventEmitter } from '@stencil/core';
 
 @Component({
- tag: 'hello-world',
- styleUrl: 'hello-world.scss',
+ tag: 'ctx-address-test',
+ styleUrl: 'ctx-address-test.scss',
  shadow: true
 })
-export class HelloWorld {
+export class CtxAddressTest {
   @Prop() name: string;
   @State() searchItem: string;
+  @Prop() cssToggle: string;
+
   @Event() searchStarted: EventEmitter;
-
-
-  @Method() showPrompt() {
-    console.log('in showPrompt mtd');
-  }
 
   componentWillLoad(){
     console.log('componentWillLoad()');
-    console.log(this.name);
   }
 
   componentDidLoad(){
@@ -27,12 +23,10 @@ export class HelloWorld {
 
   componentWillUpdate(){
     console.log('componentWillUpdate()');
-    console.log(this.name);
   }
 
   componentDidUpdate(){
     console.log('componentDidUpdate()');
-    console.log(this.name);
   }
 
  
@@ -49,21 +43,25 @@ export class HelloWorld {
     console.log(this.searchItem);
   }
 
+  edit() {
+      console.log(this.cssToggle);
+      if (this.cssToggle === 'show-content'){
+          this.cssToggle = 'hide-content';
+      } else {
+          this.cssToggle = 'show-content';
+      }
+  }
+
   render() {
+      console.log('in render');
     return (
       <div>
-        <h1>Hello World!</h1>
-        <p>Name: {this.name}</p>
-        
-        <div>
-          <form onSubmit={(e) => this.handleSubmit(e)}>
-          Search: <input type="text" 
-              id="search" 
-              value={this.searchItem}
-              onInput={(event) => this.handleChange(event)} /> (@state value)
-
-          <input type="submit" value="Submit" />
-          </form>
+        <h3>Address Edit!</h3>
+        <button onClick={this.edit}>Edit</button>
+        <p>cls: {this.cssToggle}</p>
+        <div id="editable-address" class={this.cssToggle}>
+            <p>aaaaa</p>
+            <p>bbbbbbb</p>
         </div>
       </div>
     );

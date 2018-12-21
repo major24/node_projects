@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+ <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
+</head>
+
+<body>
+ <prop-state-test 
+    id='np' 
+    name-prop="Major"
+    name-state="Nalliah">
+ </prop-state-test> 
+ <hr />
+
+ <div>NameProp: <input type="text" id="nameProp" value="Roger" /></div>
+ <div>StateProp: <input type="text" id="nameState" value="Kingston" /></div>
+ <button onclick="update()">Update</button>
+ <span>Will NOT update STATE from outside of component..</span>
+ <hr />
+
+    <script>
+        
+        function update() {
+            const el = document.getElementById('np');
+            el.setAttribute('name-prop', document.getElementById('nameProp').value);
+            el.setAttribute('name-state', document.getElementById('nameState').value);        
+        }
+            
+    
+    </script>
+</body>
+
+</html>
