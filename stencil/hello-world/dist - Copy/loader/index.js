@@ -1,1 +1,0 @@
-export * from '../esm/es5/my-web-components.define.js';

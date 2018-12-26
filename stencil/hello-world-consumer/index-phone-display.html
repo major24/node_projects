@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+ <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
+</head>
+
+<body>
+
+    <ctx-phone-display
+        data='{ "description": "Home",  "number": "4163338899", "isPrimary": true }'>
+    </ctx-phone-display>
+    <br />
+    <hr />
+
+    <ctx-phone-display-container
+        data='[{"description": "Home",  "number": "4161112222", "isPrimary": true}, {"description": "Mobile",  "number": "9053338899", "isPrimary": false}, {"description": "Work",  "number": "705557777", "isPrimary": false}]'>
+    </ctx-phone-display-container>
+    <br />
+    <hr />
+
+    <ctx-phone-edit
+        data='{ "description": "Home",  "number": "4163338899" }'>
+    </ctx-phone-edit>
+    <hr />
+    <hr />
+    <p></p>
+
+    <ctx-phone-updatable
+        data='{ "description": "Home",  "number": "4161112222" }'>
+    </ctx-phone-updatable>
+
+    <script>
+        
+        function update() {         
+            // mock api call..
+            const el2 = document.getElementById('addr');
+            const address = '{"addressLine1":"899 Queen Street", "city": "Montreal", "state": "Quebec", "postcode": "Q4R 7Y6"}';
+            setTimeout(() => {
+                el2.setAttribute('address', address);
+            }, 1000);
+            
+        }  
+    
+    </script>
+</body>
+
+</html>

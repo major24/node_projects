@@ -115,6 +115,46 @@ export namespace Components {
     'onSearchStarted'?: (event: CustomEvent) => void;
   }
 
+  interface CtxPhoneDisplayContainer {
+    'data': string;
+  }
+  interface CtxPhoneDisplayContainerAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface CtxPhoneDisplay {
+    'data': string;
+  }
+  interface CtxPhoneDisplayAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface CtxPhoneEdit {
+    'data': string;
+  }
+  interface CtxPhoneEditAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+    'onOnPhoneUpdate'?: (event: CustomEvent) => void;
+  }
+
+  interface CtxPhoneUpdatable {
+    'data': string;
+  }
+  interface CtxPhoneUpdatableAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface CtxPostCode {
+    'methods': any;
+    'postCode': string;
+    'showPrompt': () => void;
+  }
+  interface CtxPostCodeAttributes extends StencilHTMLAttributes {
+    'methods'?: any;
+    'onOnChangePostCode'?: (event: CustomEvent) => void;
+    'postCode'?: string;
+  }
+
   interface PropStateTest {
     'nameProp': string;
   }
@@ -138,6 +178,11 @@ declare global {
     'ParentChildContainer': Components.ParentChildContainer;
     'ParentComponent': Components.ParentComponent;
     'HelloWorld': Components.HelloWorld;
+    'CtxPhoneDisplayContainer': Components.CtxPhoneDisplayContainer;
+    'CtxPhoneDisplay': Components.CtxPhoneDisplay;
+    'CtxPhoneEdit': Components.CtxPhoneEdit;
+    'CtxPhoneUpdatable': Components.CtxPhoneUpdatable;
+    'CtxPostCode': Components.CtxPostCode;
     'PropStateTest': Components.PropStateTest;
   }
 
@@ -155,6 +200,11 @@ declare global {
     'parent-child-container': Components.ParentChildContainerAttributes;
     'parent-component': Components.ParentComponentAttributes;
     'hello-world': Components.HelloWorldAttributes;
+    'ctx-phone-display-container': Components.CtxPhoneDisplayContainerAttributes;
+    'ctx-phone-display': Components.CtxPhoneDisplayAttributes;
+    'ctx-phone-edit': Components.CtxPhoneEditAttributes;
+    'ctx-phone-updatable': Components.CtxPhoneUpdatableAttributes;
+    'ctx-post-code': Components.CtxPostCodeAttributes;
     'prop-state-test': Components.PropStateTestAttributes;
   }
 
@@ -237,6 +287,36 @@ declare global {
     new (): HTMLHelloWorldElement;
   };
 
+  interface HTMLCtxPhoneDisplayContainerElement extends Components.CtxPhoneDisplayContainer, HTMLStencilElement {}
+  var HTMLCtxPhoneDisplayContainerElement: {
+    prototype: HTMLCtxPhoneDisplayContainerElement;
+    new (): HTMLCtxPhoneDisplayContainerElement;
+  };
+
+  interface HTMLCtxPhoneDisplayElement extends Components.CtxPhoneDisplay, HTMLStencilElement {}
+  var HTMLCtxPhoneDisplayElement: {
+    prototype: HTMLCtxPhoneDisplayElement;
+    new (): HTMLCtxPhoneDisplayElement;
+  };
+
+  interface HTMLCtxPhoneEditElement extends Components.CtxPhoneEdit, HTMLStencilElement {}
+  var HTMLCtxPhoneEditElement: {
+    prototype: HTMLCtxPhoneEditElement;
+    new (): HTMLCtxPhoneEditElement;
+  };
+
+  interface HTMLCtxPhoneUpdatableElement extends Components.CtxPhoneUpdatable, HTMLStencilElement {}
+  var HTMLCtxPhoneUpdatableElement: {
+    prototype: HTMLCtxPhoneUpdatableElement;
+    new (): HTMLCtxPhoneUpdatableElement;
+  };
+
+  interface HTMLCtxPostCodeElement extends Components.CtxPostCode, HTMLStencilElement {}
+  var HTMLCtxPostCodeElement: {
+    prototype: HTMLCtxPostCodeElement;
+    new (): HTMLCtxPostCodeElement;
+  };
+
   interface HTMLPropStateTestElement extends Components.PropStateTest, HTMLStencilElement {}
   var HTMLPropStateTestElement: {
     prototype: HTMLPropStateTestElement;
@@ -257,6 +337,11 @@ declare global {
     'parent-child-container': HTMLParentChildContainerElement
     'parent-component': HTMLParentComponentElement
     'hello-world': HTMLHelloWorldElement
+    'ctx-phone-display-container': HTMLCtxPhoneDisplayContainerElement
+    'ctx-phone-display': HTMLCtxPhoneDisplayElement
+    'ctx-phone-edit': HTMLCtxPhoneEditElement
+    'ctx-phone-updatable': HTMLCtxPhoneUpdatableElement
+    'ctx-post-code': HTMLCtxPostCodeElement
     'prop-state-test': HTMLPropStateTestElement
   }
 
@@ -274,6 +359,11 @@ declare global {
     'parent-child-container': HTMLParentChildContainerElement;
     'parent-component': HTMLParentComponentElement;
     'hello-world': HTMLHelloWorldElement;
+    'ctx-phone-display-container': HTMLCtxPhoneDisplayContainerElement;
+    'ctx-phone-display': HTMLCtxPhoneDisplayElement;
+    'ctx-phone-edit': HTMLCtxPhoneEditElement;
+    'ctx-phone-updatable': HTMLCtxPhoneUpdatableElement;
+    'ctx-post-code': HTMLCtxPostCodeElement;
     'prop-state-test': HTMLPropStateTestElement;
   }
 

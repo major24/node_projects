@@ -1,0 +1,34 @@
+.show-content {
+    display: block;
+}
+
+.hide-content {
+    display: none;
+}
+
+.column {
+    float: left;
+    width: 300px;
+}
+
+.ctx-phone-label {
+    color: blue;
+    font-weight: bold;
+    float: left;
+    //padding-left: 2em;
+    //padding-right: 2em;
+    width: 100px;
+}
+
+.ctx-phone-text {
+    //padding-left: 2em;
+    //padding-right: 2em;
+    float: left;
+    width: 100px;
+}
+.ctx-phone-isprimary {
+    //padding: 1.5em;
+   // float: left;
+    color: red;
+}
+

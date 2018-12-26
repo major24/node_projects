@@ -1,1 +1,0 @@
-// MyWebComponents: CommonJS Main

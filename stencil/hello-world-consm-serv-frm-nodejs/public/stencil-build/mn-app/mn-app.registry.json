@@ -2,8 +2,8 @@
   "namespace": "MnApp",
   "fsNamespace": "mn-app",
   "loader": "../mn-app.js",
-  "core": "mn-app.qkfz2g2v.js",
-  "corePolyfilled": "mn-app.jqxlkknb.js",
+  "core": "mn-app.tlta22xe.js",
+  "corePolyfilled": "mn-app.1xrr3fxd.js",
   "components": {
     "author-book-container": {
       "bundleIds": {
@@ -62,36 +62,6 @@
     "ctx-address-test": {
       "bundleIds": {
         "$": "kk4tbnr9"
-      },
-      "encapsulation": "shadow"
-    },
-    "ctx-phone-display": {
-      "bundleIds": {
-        "$": "umeoduar"
-      },
-      "encapsulation": "shadow"
-    },
-    "ctx-phone-display-container": {
-      "bundleIds": {
-        "$": "sy152cgv"
-      },
-      "encapsulation": "shadow"
-    },
-    "ctx-phone-edit": {
-      "bundleIds": {
-        "$": "q4vlodkh"
-      },
-      "encapsulation": "shadow"
-    },
-    "ctx-phone-updatable": {
-      "bundleIds": {
-        "$": "q4vlodkh"
-      },
-      "encapsulation": "shadow"
-    },
-    "ctx-post-code": {
-      "bundleIds": {
-        "$": "cehvz0zu"
       },
       "encapsulation": "shadow"
     },
