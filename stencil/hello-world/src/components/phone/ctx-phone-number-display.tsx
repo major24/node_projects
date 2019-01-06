@@ -12,11 +12,11 @@ export class CtxPhoneDisplay {
   @State() _phoneNumer: string;
   @State() _description: string = "Phone";
   @State() _isPrimary: boolean = false;
-  @State() _primary: string = "";
+  @State() _primary: string = ".";
  
   componentWillLoad(){
     console.log('componentWillLoad()');
-    console.log(this.data);
+   // console.log(this.data);
     if (this.data) {
         this._data = this.data;
         const dataIn = this.parseData(this._data);
@@ -78,3 +78,17 @@ export class CtxPhoneDisplay {
     );
   }
 }
+
+/**
+ *   render() {
+    return (
+      <div>
+        <div id="ctx-phone-label" class="ctx-phone-label">{this._description}</div>
+        <div id="ctx-phone-text" class="ctx-phone-text">{this._phoneNumer}</div>
+        <div id="ctx-phone-primary" class="ctx-phone-isprimary">
+            {this._primary}
+        </div>
+      </div>
+    );
+  }
+ */

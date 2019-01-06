@@ -2,8 +2,8 @@
   "namespace": "MnApp",
   "fsNamespace": "mn-app",
   "loader": "../mn-app.js",
-  "core": "mn-app.qkfz2g2v.js",
-  "corePolyfilled": "mn-app.jqxlkknb.js",
+  "core": "mn-app.mkvac0ge.js",
+  "corePolyfilled": "mn-app.ees2iq3h.js",
   "components": {
     "author-book-container": {
       "bundleIds": {
@@ -67,7 +67,7 @@
     },
     "ctx-phone-display": {
       "bundleIds": {
-        "$": "umeoduar"
+        "$": "kboadbgp"
       },
       "encapsulation": "shadow"
     },
@@ -79,13 +79,13 @@
     },
     "ctx-phone-edit": {
       "bundleIds": {
-        "$": "q4vlodkh"
+        "$": "sctxern5"
       },
       "encapsulation": "shadow"
     },
     "ctx-phone-updatable": {
       "bundleIds": {
-        "$": "q4vlodkh"
+        "$": "sctxern5"
       },
       "encapsulation": "shadow"
     },
@@ -101,6 +101,24 @@
       },
       "encapsulation": "shadow"
     },
+    "host-shadow-dom": {
+      "bundleIds": {
+        "$": "leyhnp34"
+      },
+      "encapsulation": "shadow"
+    },
+    "my-list": {
+      "bundleIds": {
+        "$": "leyhnp34"
+      },
+      "encapsulation": "shadow"
+    },
+    "my-list-item": {
+      "bundleIds": {
+        "$": "leyhnp34"
+      },
+      "encapsulation": "shadow"
+    },
     "parent-child-container": {
       "bundleIds": {
         "$": "zlcsoeyc"
@@ -113,9 +131,51 @@
       },
       "encapsulation": "shadow"
     },
+    "phone-display": {
+      "bundleIds": {
+        "$": "byka1ppg"
+      },
+      "encapsulation": "shadow"
+    },
+    "phone-edit": {
+      "bundleIds": {
+        "$": "byka1ppg"
+      },
+      "encapsulation": "shadow"
+    },
+    "phone-updatable-container": {
+      "bundleIds": {
+        "$": "byka1ppg"
+      },
+      "encapsulation": "shadow"
+    },
     "prop-state-test": {
       "bundleIds": {
         "$": "yyywrgin"
+      },
+      "encapsulation": "shadow"
+    },
+    "show-msg": {
+      "bundleIds": {
+        "$": "v7dlfcue"
+      },
+      "encapsulation": "shadow"
+    },
+    "show-msg-container": {
+      "bundleIds": {
+        "$": "v7dlfcue"
+      },
+      "encapsulation": "shadow"
+    },
+    "show-person-info": {
+      "bundleIds": {
+        "$": "ch1ofcfu"
+      },
+      "encapsulation": "shadow"
+    },
+    "show-person-info-container": {
+      "bundleIds": {
+        "$": "ch1ofcfu"
       },
       "encapsulation": "shadow"
     }

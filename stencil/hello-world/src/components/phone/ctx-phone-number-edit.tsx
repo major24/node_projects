@@ -1,5 +1,5 @@
 import { Component, Prop, State, Watch } from '@stencil/core';
-import { Phone } from './phone';
+//import { Phone } from './phone';
 import { Event, EventEmitter } from '@stencil/core';
 
 
@@ -12,25 +12,24 @@ import { Event, EventEmitter } from '@stencil/core';
 export class CtxPhoneEdit {
   // string input: '{ "description": "Home",  "number": "4163338899" }'
   @Prop() data: string;
-  @State() _data: Phone;
-  @State() _phoneNumer: string;
-  @State() _description: string = "Phone";
+  //@State() _data: Phone;
+  //@State() _phoneNumber: string;
+  //@State() _description: string = "Phone";
+  @State() _dataIn: any;
   @Event() onPhoneUpdate: EventEmitter;
 
   private phoneDescTypes: string[] = ["Home", "Work", "Mobile"];
 
   componentWillLoad(){
-    //console.log('componentWillLoad()');
-    //console.log(this.data);
     if (this.data) {
-        const dataIn = this.parseData(this.data);
+        this._dataIn = this.parseData(this.data);
         // assign phone description (Home/ MObile/ Work etc)
-        if (dataIn.description != null && dataIn.description != ''){
-          this._description = dataIn.description;
-        }
-        if (dataIn.number != null && dataIn.number != ''){
-          this._phoneNumer = dataIn.number;
-        }       
+        //if (dataIn.description != null && dataIn.description != ''){
+          //this._description = dataIn.description;
+        //}
+        //if (dataIn.number != null && dataIn.number != ''){
+          //this._phoneNumber = dataIn.number;
+        //}       
     }
   }
 
@@ -56,55 +55,24 @@ export class CtxPhoneEdit {
       return JSON.parse(data);
     }
 
-    validateData(data: any){
-        let ph = new Phone();
-        if (data.description != null && data.description != ''){
-            ph.description = data.description;
-        }
-        if (data.number == null || data.number == ''){
-            ph.areaCode = "NA";
-        } else {
-            ph.areaCode = data.number.substring(0,3);
-            ph.localNumber = data.number.substring(3,6);
-            ph.lastFour = data.number.substring(6,10);
-        }
-        return ph;
-    }
 
-    // validate and upate (emit data)
-    updatePhone() {
-      //e.preventDefault()
-      console.log('inedit..' + this._phoneNumer);
-      const updatedPhoneData = `{ "description": "${this._description}",  "number": "${this._phoneNumer}" }`;
-      this.onPhoneUpdate.emit(updatedPhoneData);  // Emit event
-    }
+
 
     handleChange(event) {
       const tmp = event.target.value;
-     // console.log(tmp);
-      //if (tmp.length > 6)
-      //const tmp2 = `${tmp.substring(0,3)}-${tmp.substring(3,6)}`;
-      this._phoneNumer = this.formatPhoneNumber(tmp);
-    }
-
-    handleKeyPress(event) {
-      const tmp = event.target.value;
-      console.log('PR=' + tmp);
-      if (tmp == 'a') return false;
-      //if (tmp.length > 6)
-      //const tmp2 = `${tmp.substring(0,3)}-${tmp.substring(3,6)}`;
-      //this._phoneNumer = this.formatPhoneNumber(tmp);
+      this._dataIn.number = this.formatPhoneNumber(tmp);
     }
 
     handleSelect(event) {
-     // console.log(event.target.value);
-      this._description = event.target.value;
+      this._dataIn.description = event.target.value;
     }
 
     formatPhoneNumber(text) {
-      //if (text === '') return '';
-      if (text.length > 7){
-        return `${text.substring(0,3)}-${text.substring(3,6)}`;
+      if (text === '') return '';
+      if (text.length  === 3 || text.length === 7){
+        return text + "-";
+      } else {
+        return text;
       }
     }
 
@@ -116,22 +84,20 @@ export class CtxPhoneEdit {
             <option value="">Select</option>
             {this.phoneDescTypes.map((e) => {
               //console.log(e);
-              return <option value={e} selected={this._description === e}>{e}</option>
+              return <option value={e} selected={this._dataIn.description === e}>{e}</option>
             })}
           </select>
         </span>
         <span>
             <input 
-                type="tel" id="ctx-phone-edit" 
-                value={this._phoneNumer}
+                type="text" id="ctx-phone-number" 
+                value={this._dataIn.number}
+                maxLength={12}
                 onInput={(event) => this.handleChange(event)}
-                onKeyPress={(event) => this.handleKeyPress(event)}
                 >
             </input>
         </span>
-        <span>
-        <button id="update-phone" onClick={() => this.updatePhone()}>Update</button>
-        </span>
+        <span>RowId: {this._dataIn.rowId}</span>
       </div>
     );
   }

@@ -56,6 +56,34 @@ export namespace Components {
     'address'?: string;
   }
 
+  interface ShowMsgContainer {
+    'data': string;
+  }
+  interface ShowMsgContainerAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface ShowMsg {
+    'data': string;
+  }
+  interface ShowMsgAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface ShowPersonInfoContainer {
+    'data': string;
+  }
+  interface ShowPersonInfoContainerAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface ShowPersonInfo {
+    'name': string;
+  }
+  interface ShowPersonInfoAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
   interface AuthorBookContainer {
     'data': string;
   }
@@ -115,6 +143,53 @@ export namespace Components {
     'onSearchStarted'?: (event: CustomEvent) => void;
   }
 
+  interface PhoneDisplay {
+    'phoneNumber': string;
+    'phoneType': string;
+  }
+  interface PhoneDisplayAttributes extends StencilHTMLAttributes {
+    'phoneNumber'?: string;
+    'phoneType'?: string;
+  }
+
+  interface PhoneEdit {
+    'phoneNumber': string;
+    'phoneType': string;
+  }
+  interface PhoneEditAttributes extends StencilHTMLAttributes {
+    'onOnChangePhoneNumber'?: (event: CustomEvent) => void;
+    'phoneNumber'?: string;
+    'phoneType'?: string;
+  }
+
+  interface PhoneUpdatableContainer {
+    'data': string;
+  }
+  interface PhoneUpdatableContainerAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface HostShadowDom {
+    'name': string;
+  }
+  interface HostShadowDomAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
+  interface MyListItem {
+    'data': string;
+  }
+  interface MyListItemAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
+  interface MyList {
+    'data': string;
+  }
+  interface MyListAttributes extends StencilHTMLAttributes {
+    'data'?: string;
+  }
+
   interface CtxPhoneDisplayContainer {
     'data': string;
   }
@@ -170,6 +245,10 @@ declare global {
     'CtxAddressEditableContainer': Components.CtxAddressEditableContainer;
     'CtxAddressTest': Components.CtxAddressTest;
     'CtxAddress': Components.CtxAddress;
+    'ShowMsgContainer': Components.ShowMsgContainer;
+    'ShowMsg': Components.ShowMsg;
+    'ShowPersonInfoContainer': Components.ShowPersonInfoContainer;
+    'ShowPersonInfo': Components.ShowPersonInfo;
     'AuthorBookContainer': Components.AuthorBookContainer;
     'AuthorComp': Components.AuthorComp;
     'AuthorEdit': Components.AuthorEdit;
@@ -178,6 +257,12 @@ declare global {
     'ParentChildContainer': Components.ParentChildContainer;
     'ParentComponent': Components.ParentComponent;
     'HelloWorld': Components.HelloWorld;
+    'PhoneDisplay': Components.PhoneDisplay;
+    'PhoneEdit': Components.PhoneEdit;
+    'PhoneUpdatableContainer': Components.PhoneUpdatableContainer;
+    'HostShadowDom': Components.HostShadowDom;
+    'MyListItem': Components.MyListItem;
+    'MyList': Components.MyList;
     'CtxPhoneDisplayContainer': Components.CtxPhoneDisplayContainer;
     'CtxPhoneDisplay': Components.CtxPhoneDisplay;
     'CtxPhoneEdit': Components.CtxPhoneEdit;
@@ -192,6 +277,10 @@ declare global {
     'ctx-address-editable-container': Components.CtxAddressEditableContainerAttributes;
     'ctx-address-test': Components.CtxAddressTestAttributes;
     'ctx-address': Components.CtxAddressAttributes;
+    'show-msg-container': Components.ShowMsgContainerAttributes;
+    'show-msg': Components.ShowMsgAttributes;
+    'show-person-info-container': Components.ShowPersonInfoContainerAttributes;
+    'show-person-info': Components.ShowPersonInfoAttributes;
     'author-book-container': Components.AuthorBookContainerAttributes;
     'author-comp': Components.AuthorCompAttributes;
     'author-edit': Components.AuthorEditAttributes;
@@ -200,6 +289,12 @@ declare global {
     'parent-child-container': Components.ParentChildContainerAttributes;
     'parent-component': Components.ParentComponentAttributes;
     'hello-world': Components.HelloWorldAttributes;
+    'phone-display': Components.PhoneDisplayAttributes;
+    'phone-edit': Components.PhoneEditAttributes;
+    'phone-updatable-container': Components.PhoneUpdatableContainerAttributes;
+    'host-shadow-dom': Components.HostShadowDomAttributes;
+    'my-list-item': Components.MyListItemAttributes;
+    'my-list': Components.MyListAttributes;
     'ctx-phone-display-container': Components.CtxPhoneDisplayContainerAttributes;
     'ctx-phone-display': Components.CtxPhoneDisplayAttributes;
     'ctx-phone-edit': Components.CtxPhoneEditAttributes;
@@ -237,6 +332,30 @@ declare global {
   var HTMLCtxAddressElement: {
     prototype: HTMLCtxAddressElement;
     new (): HTMLCtxAddressElement;
+  };
+
+  interface HTMLShowMsgContainerElement extends Components.ShowMsgContainer, HTMLStencilElement {}
+  var HTMLShowMsgContainerElement: {
+    prototype: HTMLShowMsgContainerElement;
+    new (): HTMLShowMsgContainerElement;
+  };
+
+  interface HTMLShowMsgElement extends Components.ShowMsg, HTMLStencilElement {}
+  var HTMLShowMsgElement: {
+    prototype: HTMLShowMsgElement;
+    new (): HTMLShowMsgElement;
+  };
+
+  interface HTMLShowPersonInfoContainerElement extends Components.ShowPersonInfoContainer, HTMLStencilElement {}
+  var HTMLShowPersonInfoContainerElement: {
+    prototype: HTMLShowPersonInfoContainerElement;
+    new (): HTMLShowPersonInfoContainerElement;
+  };
+
+  interface HTMLShowPersonInfoElement extends Components.ShowPersonInfo, HTMLStencilElement {}
+  var HTMLShowPersonInfoElement: {
+    prototype: HTMLShowPersonInfoElement;
+    new (): HTMLShowPersonInfoElement;
   };
 
   interface HTMLAuthorBookContainerElement extends Components.AuthorBookContainer, HTMLStencilElement {}
@@ -287,6 +406,42 @@ declare global {
     new (): HTMLHelloWorldElement;
   };
 
+  interface HTMLPhoneDisplayElement extends Components.PhoneDisplay, HTMLStencilElement {}
+  var HTMLPhoneDisplayElement: {
+    prototype: HTMLPhoneDisplayElement;
+    new (): HTMLPhoneDisplayElement;
+  };
+
+  interface HTMLPhoneEditElement extends Components.PhoneEdit, HTMLStencilElement {}
+  var HTMLPhoneEditElement: {
+    prototype: HTMLPhoneEditElement;
+    new (): HTMLPhoneEditElement;
+  };
+
+  interface HTMLPhoneUpdatableContainerElement extends Components.PhoneUpdatableContainer, HTMLStencilElement {}
+  var HTMLPhoneUpdatableContainerElement: {
+    prototype: HTMLPhoneUpdatableContainerElement;
+    new (): HTMLPhoneUpdatableContainerElement;
+  };
+
+  interface HTMLHostShadowDomElement extends Components.HostShadowDom, HTMLStencilElement {}
+  var HTMLHostShadowDomElement: {
+    prototype: HTMLHostShadowDomElement;
+    new (): HTMLHostShadowDomElement;
+  };
+
+  interface HTMLMyListItemElement extends Components.MyListItem, HTMLStencilElement {}
+  var HTMLMyListItemElement: {
+    prototype: HTMLMyListItemElement;
+    new (): HTMLMyListItemElement;
+  };
+
+  interface HTMLMyListElement extends Components.MyList, HTMLStencilElement {}
+  var HTMLMyListElement: {
+    prototype: HTMLMyListElement;
+    new (): HTMLMyListElement;
+  };
+
   interface HTMLCtxPhoneDisplayContainerElement extends Components.CtxPhoneDisplayContainer, HTMLStencilElement {}
   var HTMLCtxPhoneDisplayContainerElement: {
     prototype: HTMLCtxPhoneDisplayContainerElement;
@@ -329,6 +484,10 @@ declare global {
     'ctx-address-editable-container': HTMLCtxAddressEditableContainerElement
     'ctx-address-test': HTMLCtxAddressTestElement
     'ctx-address': HTMLCtxAddressElement
+    'show-msg-container': HTMLShowMsgContainerElement
+    'show-msg': HTMLShowMsgElement
+    'show-person-info-container': HTMLShowPersonInfoContainerElement
+    'show-person-info': HTMLShowPersonInfoElement
     'author-book-container': HTMLAuthorBookContainerElement
     'author-comp': HTMLAuthorCompElement
     'author-edit': HTMLAuthorEditElement
@@ -337,6 +496,12 @@ declare global {
     'parent-child-container': HTMLParentChildContainerElement
     'parent-component': HTMLParentComponentElement
     'hello-world': HTMLHelloWorldElement
+    'phone-display': HTMLPhoneDisplayElement
+    'phone-edit': HTMLPhoneEditElement
+    'phone-updatable-container': HTMLPhoneUpdatableContainerElement
+    'host-shadow-dom': HTMLHostShadowDomElement
+    'my-list-item': HTMLMyListItemElement
+    'my-list': HTMLMyListElement
     'ctx-phone-display-container': HTMLCtxPhoneDisplayContainerElement
     'ctx-phone-display': HTMLCtxPhoneDisplayElement
     'ctx-phone-edit': HTMLCtxPhoneEditElement
@@ -351,6 +516,10 @@ declare global {
     'ctx-address-editable-container': HTMLCtxAddressEditableContainerElement;
     'ctx-address-test': HTMLCtxAddressTestElement;
     'ctx-address': HTMLCtxAddressElement;
+    'show-msg-container': HTMLShowMsgContainerElement;
+    'show-msg': HTMLShowMsgElement;
+    'show-person-info-container': HTMLShowPersonInfoContainerElement;
+    'show-person-info': HTMLShowPersonInfoElement;
     'author-book-container': HTMLAuthorBookContainerElement;
     'author-comp': HTMLAuthorCompElement;
     'author-edit': HTMLAuthorEditElement;
@@ -359,6 +528,12 @@ declare global {
     'parent-child-container': HTMLParentChildContainerElement;
     'parent-component': HTMLParentComponentElement;
     'hello-world': HTMLHelloWorldElement;
+    'phone-display': HTMLPhoneDisplayElement;
+    'phone-edit': HTMLPhoneEditElement;
+    'phone-updatable-container': HTMLPhoneUpdatableContainerElement;
+    'host-shadow-dom': HTMLHostShadowDomElement;
+    'my-list-item': HTMLMyListItemElement;
+    'my-list': HTMLMyListElement;
     'ctx-phone-display-container': HTMLCtxPhoneDisplayContainerElement;
     'ctx-phone-display': HTMLCtxPhoneDisplayElement;
     'ctx-phone-edit': HTMLCtxPhoneEditElement;

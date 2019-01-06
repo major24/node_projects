@@ -1,4 +1,6 @@
-import { Component, Prop, State, Listen } from '@stencil/core';
+import { Component, Prop, State, Listen, Element } from '@stencil/core';
+//import { CtxPhoneEdit } from './ctx-phone-number-edit';
+
 //import { Phone } from './phone';
 
 @Component({
@@ -7,27 +9,38 @@ import { Component, Prop, State, Listen } from '@stencil/core';
  shadow: true
 })
 export class CtxPhoneUpdatable {
-  // string input: '{ "description": "Home",  "number": "4163338899" }'
+  // string input:
+  // ['{ "description": "Home",  "number": "4163338899", "isPrimary": true }, {....}]'
   @Prop() data: string;
   @State() _data: string; //Phone;
+  @State() _dataIn: any;
   @State() _cssShowHideDisp: string = "show-content";
   @State() _cssShowHideEdit: string = "hide-content";
+  //@Element() _ctxEdit: HTMLCtxPhoneEditElement;
+  //@Element() _ctxE: HTMLInputElement;
+  @Element() _divParent: HTMLDivElement;
+  @Element() _nbr: HTMLInputElement;
 
   componentWillLoad(){
-    console.log('componentWillLoad()');
-    console.log(this.data);
+    console.log('updatable-componentWillLoad()');
+    //console.log(this.data);
     if (this.data) {
-        //const dataIn = this.parseData(this.data);
-        //this._data = this.validateData(dataIn);
         this._data = this.data;
-        console.log(this._data);
+        this._dataIn = this.parseData(this._data);
+        // inorder to edit/update we need a unique identifier to identify which rec
+        // is being modified. add row id to incoming data
+        this._dataIn = this._dataIn.map((e, idx) => {
+            e.rowId = idx;
+            return e;
+        })
+        //console.log(this._dataIn);
     }
     // set CSS class
     //this._cssShowHide = this._isEditVisible === true ? 'show-content' : 'hide:content';
   }
 
   componentDidLoad(){
-    console.log('componentDidLoad()');
+   // console.log('componentDidLoad()');
     //console.log(this._element);
     //this._elEditPhone = this._element.shadowRoot.querySelector('#phone-edit');
     //console.log('------');
@@ -35,11 +48,11 @@ export class CtxPhoneUpdatable {
   }
 
   componentWillUpdate(){
-    console.log('componentWillUpdate()');
+    //console.log('componentWillUpdate()');
   }
 
   componentDidUpdate(){
-    console.log('componentDidUpdate()');
+   // console.log('componentDidUpdate()');
   }
 
    // @Watch('data')
@@ -67,6 +80,16 @@ export class CtxPhoneUpdatable {
         return ph;
     }*/
 
+    parseData(data: string){
+        return JSON.parse(data);
+    }
+
+    stringfy(data: any) {
+        //console.log('==' + JSON.stringify(data));
+        return JSON.stringify(data);
+    }
+
+
     editPhone(){
         //console.log(this._cssShowHide);
         this.toggleEditContent();
@@ -86,36 +109,84 @@ export class CtxPhoneUpdatable {
     @Listen('onPhoneUpdate')
     onPhoneUpdate(e) {
         console.log('in parent cntr');
-        console.log(e.detail);
+        //console.log(e.detail);
         // update display data
         this._data = e.detail;
         // update toggle
         this.toggleEditContent();
     }
 
-  render() {
-    return (
-      <div>
-          
-        <div class="column">
-            <span id="phone-display" class={this._cssShowHideDisp}>
-                <ctx-phone-display 
-                    data={this._data}>
-                </ctx-phone-display>
-            </span>
-        </div>
-        <div class={this._cssShowHideDisp}>
-            <button id="edit-phone" onClick={() => this.editPhone()}>Edit</button>
-        </div>
-        <div >
-            <span id="phone-edit" class={this._cssShowHideEdit}>
-                <label>Enter a telephone number (in the form xxx-xxx-xxxx): </label>
-                <ctx-phone-edit
-                    data={this._data}>
-                </ctx-phone-edit>
-            </span>
-        </div>
-      </div>
-    );
-  }
+        // validate and upate (emit data)
+        updatePhone() {
+            //e.preventDefault()
+            //console.log('inedit..' + this._dataIn.number);   //this._phoneNumber);
+            //const re = /-/gi;
+            //const number = this._dataIn.number.replace(re, "");
+            //console.log(number);
+            //const updatedPhoneData = `{ "description": "${this._dataIn.description}",  "number": "${number}", "rowId": ${this._dataIn.rowId} }`;
+            //console.log(updatedPhoneData)
+            //this.onPhoneUpdate.emit(updatedPhoneData);  // Emit event
+            console.log('in updatable update');
+            //const ctxEditCtls = this._ctxEdit.shadowRoot.querySelectorAll("ctx-phone-edit");
+            //console.log(ctxEditCtls);
+            //console.log(ctxEditCtls.length);
+            //for(let i = 0; i < ctxEditCtls.length; i++) {
+                //console.log(ctxEditCtls[i]);
+               // this._ctxE = ctxEditCtls[i].shadowRoot.querySelector('ctx-phone-number');
+                //console.log(this._ctxE);
+                //const x = ctxEditCtls.getEle
+           // }
+            const div = this._divParent.shadowRoot;
+            console.log(div);
+            const edits = div.querySelectorAll('ctx-phone-edit');
+            console.log(edits);
+            const nbr = edits[0].shadowRoot.getElementById('ctx-phone-number');
+            //this._nbr = edits[0].shadowRoot.getElementById('ctx-phone-number');
+            console.log(nbr);
+            const x = div.querySelectorAll('ctx-phone-number');
+            console.log(x);
+            //console.log(nbr.getAttribute('value'));
+            
+            //{this._dataIn.map((e) => {
+                //console.log(e);
+            //})}
+            //this.toggleEditContent();
+          }
+
+
+    render() {
+        return (
+          <div>
+              <div class="column">
+              <div class={this._cssShowHideDisp}>
+                            <button id="edit-phone" onClick={() => this.editPhone()}>Edit</button>
+                        </div>
+              {this._dataIn.map((e) => {
+                  return (
+                        <div>
+                        <span id="phone-display" class={this._cssShowHideDisp}>
+                            <ctx-phone-display 
+                                data={this.stringfy(e)}>
+                            </ctx-phone-display>
+                        </span>
+
+                            
+                                <span id="phone-edit" class={this._cssShowHideEdit}>
+                                    <ctx-phone-edit
+                                        data={this.stringfy(e)}>
+                                    </ctx-phone-edit>
+                                </span>
+                            
+                        </div>
+                        )
+              })}
+                      <span class={this._cssShowHideEdit}>
+        <button id="update-phone" onClick={() => this.updatePhone()}>Update</button>
+        </span>
+              </div>
+          </div>
+        );
+      }
+
+
 }
