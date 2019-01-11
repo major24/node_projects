@@ -1,0 +1,40 @@
+// https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1
+
+to run:
+npm run start
+
+browser: localhost:4000/graphql
+
+
+in graphical interface do the below query
+--------------------------------------------------------------
+// returns all the courses with two fields only..
+
+query {
+  courses {
+    id,
+    title
+  }
+}
+--------------------------------------------------------------
+
+// with query param..
+
+query {
+  courses (topic: "JavaScript") {
+    id,
+    title
+  }
+}
+
+--------------------------------------------------------------
+// single course by id
+
+query {
+  course(id: 3) {
+    id,
+    title
+  }
+}
+
+
