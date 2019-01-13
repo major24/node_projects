@@ -36,5 +36,41 @@ query {
     title
   }
 }
+--------------------------------------------------------------
+
+// post
+
+# course object without id. json server takes care of id...
+# POST
+
+mutation {
+  createCourse(input:{
+    title: "aa",
+    author: "maj",
+    description: "d1",
+    topic: "js",
+    url: "goo.com"
+  }) {
+    id
+  }
+}
+
+
+# PUT - single course id and ALL course paramenters..
+
+mutation {
+  updateCourseTopic(id: 4, input:{
+    title: "aa2",
+    author: "maj2",
+    description: "d1",
+    topic: "js2",
+    url: "goo.com"
+  }) {
+    id
+  }
+}
+
+
+
 
 

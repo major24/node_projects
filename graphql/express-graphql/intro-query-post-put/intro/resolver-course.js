@@ -21,9 +21,6 @@ var getCourse = async function(args) {
             });
         });
         return await promise;
-        //return coursesData.filter(course => {
-          //  return course.id == id;
-        //})[0];
   }
 
   module.exports = {
