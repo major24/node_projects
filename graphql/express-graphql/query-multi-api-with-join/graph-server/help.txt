@@ -1,0 +1,98 @@
+// https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1
+
+to run:
+npm run start
+
+browser: localhost:4000/graphql
+
+
+in graphical interface do the below query
+--------------------------------------------------------------
+// returns all the courses with two fields only..
+
+query {
+  courses {
+    id,
+    title
+  }
+}
+--------------------------------------------------------------
+
+// with query param..
+
+query {
+  courses (topic: "JavaScript") {
+    id,
+    title
+  }
+}
+
+--------------------------------------------------------------
+// single course by id
+
+query {
+  course(id: 3) {
+    id,
+    title
+  }
+}
+--------------------------------------------------------------
+
+// post
+
+# course object without id. json server takes care of id...
+# POST
+
+mutation {
+  createCourse(input:{
+    title: "aa",
+    author: "maj",
+    description: "d1",
+    topic: "js",
+    url: "goo.com"
+  }) {
+    id
+  }
+}
+
+
+# PUT - single course id and ALL course paramenters..
+
+mutation {
+  updateCourseTopic(id: 4, input:{
+    title: "aa2",
+    author: "maj2",
+    description: "d1",
+    topic: "js2",
+    url: "goo.com"
+  }) {
+    id
+  }
+}
+
+
+# Get posts by ids (array of ids)
+query {
+  postsByIds([100, 101, 200]) {
+    id,
+    title
+  }
+}
+
+
+# Get and posts by user id
+# does a join in resolver to get the right query
+
+query {
+  userAndPosts(id: 1) {
+    user {
+      id,
+      name
+    },
+    posts{
+      id,
+      title
+    }
+  }
+}
+

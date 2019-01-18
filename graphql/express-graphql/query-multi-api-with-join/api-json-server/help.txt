@@ -1,0 +1,14 @@
+
+to run:
+npm run start
+
+
+http://localhost:3000/courses
+http://localhost:3000/courses/2
+
+
+
+
+
+
+

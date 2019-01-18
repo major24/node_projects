@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Henry",
+      "posts": [100, 101]
+    },
+    {
+      "id": 2,
+      "name": "Ian Beckham",
+      "posts": [200]
+    }
+  ],
+
+  "posts": [
+    {
+      "id": 100,
+      "title": "Angel in the sky"
+    },
+    {
+      "id": 101,
+      "title": "Night angel Havana"
+    },
+    {
+      "id": 200,
+      "title": "Normandy war"
+    }
+  ]
+}
