@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "John",
+      "lastname": "Abraham",
+      "address": "123 King street"
+    },
+    {
+      "id": 2,
+      "firstname": "Mary",
+      "lastname": "Matt",
+      "address": "400 Queen street"
+    },
+    {
+      "id": 3,
+      "firstname": "Anton",
+      "lastname": "Kangayan",
+      "address": "389 Bloor street"
+    },
+    {
+      "id": 4,
+      "firstname": "Mary",
+      "lastname": "Smith",
+      "address": "89 Mackenzie road"
+    }
+  ]
+}
