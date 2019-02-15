@@ -4,6 +4,7 @@ const typeDefs = `
         hello2(name: String): String
         users: [User]
         users2: [User]
+        user(id: String): User
     }
     type User {
         id: String!
