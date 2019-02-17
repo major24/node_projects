@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+// service
+import  PhoneService  from './services/phone-service';
+import PhoneServiceV2 from './services/phone-service-ts2-oecp';
+
 Vue.use(Vuex)
 
 // root state object.
 // each Vuex instance is just a single state tree.
 const state = {
-  customers: []
+  customers: [],
+  phoneNumbers: [],
+  phoneNumbersTs2Oecp: []
 }
 
 export const CUSTOMERS = 'CUSTOMERS';
@@ -39,6 +45,25 @@ const mutations = {
     console.log(state.customers);
   },
 
+  fetchAllPhoneNumbersOecp(state) {
+    console.log('mutations-fetchphonenumbers');
+    PhoneService.getAllPhoneNumbersOecp()
+      .then(function(resp){
+        console.log(resp);
+        state.phoneNumbers = resp;
+    });
+  },
+
+  fetchPhoneNumbersTs2OrOecp(state, payload) {
+    console.log('mutations-fetchPhoneNumbersTs2OrOecp: ' + payload.id);
+    PhoneServiceV2.getPhoneNumbersTs2Oecp(payload.id)
+      .then(resp => {
+        console.log(resp);
+        state.phoneNumbersTs2Oecp = resp;
+      })
+  },
+
+
   increment (state) {
     state.count++
   },
@@ -52,9 +77,17 @@ const mutations = {
 const actions = {
   fetchCustomers: ({ commit }) => commit('fetchCustomers'),
   clearCustomers: ({ commit }) => commit('clearCustomers'),
+
   updateCustomer: ({ commit }, payload) => {
     commit('updateCustomer', payload);
   },
+
+  fetchAllPhoneNumbersOecp: ({ commit }) => commit('fetchAllPhoneNumbersOecp'),
+
+  fetchPhoneNumbersTs2OrOecp: ({ commit}, payload) => {
+    commit('fetchPhoneNumbersTs2OrOecp', payload);
+  },
+
 
   increment: ({ commit }) => commit('increment'),
   decrement: ({ commit }) => commit('decrement'),
@@ -76,7 +109,9 @@ const actions = {
 // getters are functions
 const getters = {
   evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd',
-  customers: () => state.customers
+  customers: () => state.customers,
+  phoneNumbers: () => state.phoneNumbers,
+  phoneNumbersTs2Oecp: () => state.phoneNumbersTs2Oecp
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,
