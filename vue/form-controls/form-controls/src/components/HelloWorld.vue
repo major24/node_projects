@@ -4,7 +4,7 @@
     <ul>
       <li>
         <router-link to="/">Home</router-link> |
-        <router-link to="/textbox">Textbox</router-link> |
+        <router-link to="/html-controls">Html Controls</router-link> |
       </li>
     </ul>
   </div>

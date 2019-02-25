@@ -79,10 +79,10 @@
 
 <script>
 export default {
-  name: 'TextBox',
+  name: 'HtmlControls',
   data () {
     return {
-      msg: 'Textbox',
+      msg: 'Html Controls',
       user: {
           "firstName": "Steve",
           "lastName": "Richard",
