@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import PhonePage from '../src/phonePage'
 
 describe('PhonePage', () => {

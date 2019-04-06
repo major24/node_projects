@@ -1,5 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
-import { RouterLinkStub } from '@vue/test-utils'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import HelloWorld from '@/components/HelloWorld'
 
 describe('HelloWorld.vue', () => {

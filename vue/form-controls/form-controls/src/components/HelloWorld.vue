@@ -5,7 +5,8 @@
       <li>
         <router-link to="/">Home</router-link> |
         <router-link to="/html-controls">Html Controls</router-link> |
-        <router-link to="/users">Users</router-link> |
+        <router-link to="/users">User Page</router-link> |
+        <router-link to="/data-bind">Data Bind</router-link> |
       </li>
     </ul>
   </div>

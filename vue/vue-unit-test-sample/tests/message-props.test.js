@@ -42,19 +42,19 @@ describe('Message.vue', () => {
           }
       }
     })
-  
+
     it('Then has a message property title with passed in value', () => {
         expect(wrapper.props().title).toBe('My Message Board');
     })
-  
+
     it('renders the title property with passed in', () => {
       expect(wrapper.html()).toContain('<span class="title">My Message Board</span>')
     })
-  
+
     it('renders the messgage property passed in', () => {
       const el = wrapper.find('.message');
       expect(el.html()).toContain('<span class="message">Welcome </span>')
     })
-  
+
   });
 

@@ -2,7 +2,11 @@
   <div class="users">
     <h3>Users Page</h3>
     <hr />
-    <button @click="getUsers">Get Users</button>
+    <button id="getSampleData" @click="getSampleData">Get Sample Data</button>
+    <button id="getUsers" @click="getUsers">Get Users</button>
+    <button id="add" @click="onAdd(5, 7)">Add</button>
+    <button id="subtract" @click="onSubtract(6, 2)">Subtract</button>
+    <hr />
     <div>
       <ul>
         <li v-for="user in users" :key="user.id">
@@ -15,28 +19,40 @@
     <div>
       {{users}}
     </div>
+    <div id="math-result">{{mathResult}}</div>
+    <div id="msg">{{msg}}</div>
   </div>
 </template>
 
 <script>
-import userService from '../services/userService'
+import { getSampleData, getUsersFromAPI } from '../services/userService'
+import * as math from '../services/math'
 
 export default {
   name: 'Users',
   data () {
     return {
       users: [],
-      msg: ''
+      msg: '..',
+      mathResult: 0
     }
   },
   methods: {
     getUsers () {
-      console.log('getting user from public api')
-      userService.getUsers()
+      getUsersFromAPI()
         .then((resp) => {
-          console.log(resp.data)
+          // console.log(resp.data)
           this.users = resp.data
         })
+    },
+    getSampleData () {
+      this.msg = getSampleData()
+    },
+    onAdd (a, b) {
+      this.mathResult = math.add(a, b)
+    },
+    onSubtract (a, b) {
+      this.mathResult = math.subtract(a, b)
     }
   }
 }

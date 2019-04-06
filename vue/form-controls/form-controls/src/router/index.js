@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import HtmlControls from '@/components/HtmlControls'
-import Users from '@/components/Users'
+import UserPage from '@/components/UserPage'
+import DataBind from '@/components/DataBind'
 
 Vue.use(Router)
 
@@ -20,8 +21,13 @@ export default new Router({
     },
     {
       path: '/users',
-      name: 'Users',
-      component: Users
+      name: 'UserPage',
+      component: UserPage
+    },
+    {
+      path: '/data-bind',
+      name: 'DataBind',
+      component: DataBind
     }
   ]
 })

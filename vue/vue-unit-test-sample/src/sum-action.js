@@ -1,27 +1,23 @@
 
-// import ExtService from './externalService';
-import math from './math';
+import { add }  from '/math';
 
 export default {
   template: `
     <div>
-      <span class="sum">{{ sum }}</span>
-      <button @click="add(n1,n2)">Add</button>
+      <span class="count">{{ count }}</span>
+      <button @click="increment">Increment</button>
     </div>
   `,
 
   data () {
     return {
-      sum: 0,
-      n1: 0,
-      n2: 0
+      count: 0
     }
   },
 
   methods: {
-    add (n1, n2) {
-      console.log('add method is called.');
-      //this.sum = math.add(n1, n2);
-    },
+    increment () {
+      this.count++
+    }
   }
 }

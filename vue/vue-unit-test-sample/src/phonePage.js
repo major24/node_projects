@@ -1,11 +1,10 @@
 // phonePage.js
-
 export default {
   template: `
     <div>
 
       <div>
-        Phone Mobile: 
+        Phone Mobile:
         <input type="text" id="phone-mobile" :value="phoneNumber.mobile" @blur="onBlur" />
       </div>
       <div>
@@ -13,7 +12,7 @@ export default {
       </div>
 
       <div>
-        Phone Home: 
+        Phone Home:
         <input type="text" id="phone-home" :value="phoneNumber.home" @blur="onBlur" />
       </div>
       <div>

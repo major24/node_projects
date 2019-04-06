@@ -1,5 +1,4 @@
 import { shallowMount } from '@vue/test-utils'
-import { RouterLinkStub } from '@vue/test-utils'
 import HtmlControls from '@/components/HtmlControls'
 
 describe('When HtmlControls.vue loads...', () => {
@@ -37,17 +36,17 @@ describe('When user data sets up for input controls...', () => {
     })
     wrapper.setData({
       user: {
-      'firstName': 'John',
-      'lastName': 'Jonathan'
+        'firstName': 'John',
+        'lastName': 'Jonathan'
       }
     })
   })
 
-  it ('Should set user data first name', () => {
+  it('Should set user data first name', () => {
     expect(wrapper.vm.user.firstName).toBe('John')
   })
 
-  it ('Should set user data last name', () => {
+  it('Should set user data last name', () => {
     expect(wrapper.vm.user.lastName).toBe('Jonathan')
   })
 
@@ -77,13 +76,13 @@ describe('When input controls data changes...', () => {
     })
     wrapper.setData({
       user: {
-      'firstName': 'Reynold',
-      'lastName': 'Smith'
+        'firstName': 'Reynold',
+        'lastName': 'Smith'
       }
     })
   })
 
-  it ('Should set user data first name', () => {
+  it('Should set user data first name', () => {
     expect(wrapper.vm.user.firstName).toBe('Reynold')
   })
 
@@ -98,7 +97,7 @@ describe('When input controls data changes...', () => {
     expect(fullname.html()).toContain('Full Name: (computed) Reynold Smith')
     wrapper.setData({
       user: {
-      'firstName': 'Reynold9000',
+        'firstName': 'Reynold9000'
       }
     })
     expect(fullname.html()).toContain('Full Name: (computed) Reynold9000 Smith')
@@ -115,27 +114,27 @@ describe('When HtmlControls loads sets up province radio buttons...', () => {
     })
     wrapper.setData({
       user: {
-      'firstName': 'Reynold',
-      'lastName': 'Smith',
-      'province': 'ON',
+        'firstName': 'Reynold',
+        'lastName': 'Smith',
+        'province': 'ON'
       }
     })
   })
 
-  it ('Should find selected province in correct selection control', () => {
+  it('Should find selected province in correct selection control', () => {
     const rdo = wrapper.find('#ON')
     // console.log(ont.html())
     expect(rdo.element.value).toBe('ON')
     expect(rdo.element.checked).toBe(true)
   })
 
-  it ('Should not check non selected control', () => {
+  it('Should not check non selected control', () => {
     const rdo = wrapper.find('#BC')
     expect(rdo.element.value).toBe('BC')
     expect(rdo.element.checked).toBe(false)
   })
 
-  it ('When province selected control is clicked', () => {
+  it('When province selected control is clicked', () => {
     const rdo = wrapper.find('#QC')
     rdo.trigger('click')
     expect(wrapper.vm.user.province).toBe('QC')
@@ -152,32 +151,32 @@ describe('When HtmlControls loads sets up programming language checkboxes...', (
     })
     wrapper.setData({
       user: {
-      'firstName': 'Reynold',
-      'lastName': 'Smith',
-      'languages': ['JV', 'JS'],
+        'firstName': 'Reynold',
+        'lastName': 'Smith',
+        'languages': ['JV', 'JS']
       }
     })
   })
 
-  it ('Should find checkbox set correctly for java lang', () => {
+  it('Should find checkbox set correctly for java lang', () => {
     const chk = wrapper.find('#JV')
     expect(chk.element.value).toBe('JV')
     expect(chk.element.checked).toBe(true)
   })
 
-  it ('Should find checkbox set correctly for Javascript lang', () => {
+  it('Should find checkbox set correctly for Javascript lang', () => {
     const chk = wrapper.find('#JS')
     expect(chk.element.value).toBe('JS')
     expect(chk.element.checked).toBe(true)
   })
 
-  it ('Should find checkbox not set for python lang', () => {
+  it('Should find checkbox not set for python lang', () => {
     const chk = wrapper.find('#PY')
     expect(chk.element.value).toBe('PY')
     expect(chk.element.checked).toBe(false)
   })
 
-  it ('When checkbox for Go Lang is clicked then set lang', () => {
+  it('When checkbox for Go Lang is clicked then set lang', () => {
     const chk = wrapper.find('#GO')
     chk.trigger('click')
     expect(chk.element.value).toBe('GO')
@@ -197,28 +196,28 @@ describe('When phone number control is validated...', () => {
     })
     wrapper.setData({
       user: {
-      'firstName': 'John',
-      'lastName': 'Jonathan',
-      'phone': ''
+        'firstName': 'John',
+        'lastName': 'Jonathan',
+        'phone': ''
       }
     })
   })
 
-  it ('Then enter a correct phone and expect no error', () => {
+  it('Then enter a correct phone and expect no error', () => {
     const phone = wrapper.find('#phone')
     phone.element.value = '4162223434'
     phone.trigger('blur')
     expect(wrapper.vm.errorMessage.phone).toBe('')
   })
 
-  it ('Then enter an incorrect phone and expect error', () => {
+  it('Then enter an incorrect phone and expect error', () => {
     const phone = wrapper.find('#phone')
     phone.element.value = '41622'
     phone.trigger('blur')
     expect(wrapper.vm.errorMessage.phone).toBe(errorPhone)
   })
 
-  it ('Then enter an incorrect area code and expect error', () => {
+  it('Then enter an incorrect area code and expect error', () => {
     const phone = wrapper.find('#phone')
     phone.element.value = '8002221111'
     phone.trigger('blur')
@@ -237,14 +236,14 @@ describe('When callme selection loads...', () => {
     })
     wrapper.setData({
       user: {
-      'firstName': 'John',
-      'lastName': 'Jonathan',
-      'callme': true
+        'firstName': 'John',
+        'lastName': 'Jonathan',
+        'callme': true
       }
     })
   })
 
-  it ('Then it set the user preference', () => {
+  it('Then it set the user preference', () => {
     const callme = wrapper.find('#mob-yes')
     expect(callme.element.checked).toBe(true)
 
@@ -252,10 +251,9 @@ describe('When callme selection loads...', () => {
     expect(callmeno.element.checked).toBe(false)
   })
 
-  it ('When callme is set to no, then set value', () => {
+  it('When callme is set to no, then set value', () => {
     const callmeno = wrapper.find('#mob-no')
     callmeno.trigger('click')
     expect(callmeno.element.checked).toBe(true)
   })
-
 })

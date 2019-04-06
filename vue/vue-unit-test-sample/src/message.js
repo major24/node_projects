@@ -1,5 +1,3 @@
-// counter.js
-
 export default {
     template: `
       <div>
@@ -7,7 +5,7 @@ export default {
         <span class="message">{{ message.firstmsg }} {{ message.secondmsg }}</span>
       </div>
     `,
-  
+
     data () {
       return {
       }
