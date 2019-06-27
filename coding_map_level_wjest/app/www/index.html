@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Site</title>
+    <style>
+        body { padding-top:20px; padding-left: 40px; }
+        .map-div {
+          border: solid;
+          border-width: thin;
+          width: 2rem;
+          height: 2rem;
+          text-align: center;
+          padding-top: .4rem;
+        }
+        .hilight-light-green {
+	        background-color: #54F36F
+        }
+        .hilight-light-blue {
+	        background-color: #67D7F3
+        }
+        .hilight-light-purple {
+	        background-color: #EC43BF
+        }
+        .hilight-light-yellow {
+	        background-color: #ECE643
+        }
+    </style>
+    <script>
+      const colorDict = {
+        0: 'hilight-light-green',
+        1: 'hilight-light-blue',
+        2: 'hilight-light-purple',
+        3: 'hilight-light-yellow'
+      };
+
+      function drawMap(arMap) {
+        let tblHdr = '<table id="tbl-map" cellspacing="0" cellpadding="0"><tbody>';
+        let tblFtr = '</tbody></table>';
+        let trs = '';
+        for(let i=0; i<arMap.map[0].length; i++) {
+          let tds = '';
+          for(let j=0; j<arMap.map[i].length; j++) {
+            tds += `<td><div class='map-div' onclick="mapClicked(${i}, ${j})">${arMap.map[i][j]}</div></td>`;
+          }
+          trs += '<tr>' + tds + '</tr>'
+        }
+
+        let final = tblHdr + trs + tblFtr;
+        document.getElementById('map').innerHTML = final;
+      }
+
+      function mapClicked(row, col) {
+        getMatchLevel(row, col);
+      }
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
+      function colorMap(arFoundPts) {
+        var tbl = document.getElementById("tbl-map");
+        const cssColor = colorDict[getRandomInt(3)];
+        for(let i=0; i<arFoundPts.length; i++) {
+          tbl.rows[arFoundPts[i][0]].cells[arFoundPts[i][1]].setAttribute('class', cssColor);
+        }
+      }
+
+
+
+      function getMap() {
+        const selected = document.getElementById('map-info').value;
+        console.log('getting map info: ' + selected);
+        const url = `http://localhost:8080/api/map?id=${selected}`;
+
+        fetch(url)
+        .then((resp) => {
+          if (resp.status !== 200) {
+            console.log('Error getting map data. ' + resp.status);
+            return;
+          }
+
+          resp.json().then((data) => {
+            console.log(data);
+            drawMap(data);
+          })
+        })
+        .catch((err) => {
+          console.log('Error: Fetch error- ' + err);
+        })
+      }
+
+      // /api/map/match/level
+      function getMatchLevel(row, col) {
+        // write to page
+        document.getElementById('sel-row').innerHTML = row;
+        document.getElementById('sel-col').innerHTML = col;
+
+        const selected = document.getElementById('map-info').value;
+        const url = `http://localhost:8080/api/map/match/level?row=${row}&col=${col}&id=${selected}`;
+
+        fetch(url)
+        .then((resp) => {
+          if (resp.status !== 200) {
+            console.log('Error getting matched data' + resp.status);
+            return;
+          }
+
+          resp.json().then((data) => {
+            console.log('found matching level');
+            console.log(data.levelMatched);
+            colorMap(data.levelMatched);
+          })
+        })
+        .catch((err) => {
+          console.log('Error: Fetch error- ' + err);
+        })
+      }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+      <h2>index.html retrieved from express server</h2>
+      <p>Get map and find related co-ordinates for level</p>
+      <hr />
+      <!-- <p>
+          <button onclick="colorMap( [ [ 1, 1 ], [ 1, 2 ], [ 1, 0 ], [ 0, 1 ], [ 2, 1 ] ])">Test color</button>
+      </p> -->
+
+      <div>
+        <select id="map-info">
+          <option value="data1" selected>Data1-3x3</option>
+          <option value="data2">Data2-5x5</option>
+          <option value="data3">Data3-10x10</option>
+          <option value="data4">Data4-10x10</option>
+        </select>
+        <button onclick="getMap()">Get Map</button>
+        <span>
+          Selected
+          Row: <span id='sel-row'></span>
+          Col: <span id='sel-col'></span>
+        </span>
+        <br /><br />
+        <div id='map'>....</div>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -2,8 +2,8 @@
   "namespace": "MnApp",
   "fsNamespace": "mn-app",
   "loader": "../mn-app.js",
-  "core": "mn-app.mkvac0ge.js",
-  "corePolyfilled": "mn-app.ees2iq3h.js",
+  "core": "mn-app.hng545uo.js",
+  "corePolyfilled": "mn-app.56huhabq.js",
   "components": {
     "author-book-container": {
       "bundleIds": {
@@ -97,13 +97,37 @@
     },
     "hello-world": {
       "bundleIds": {
-        "$": "ads01som"
+        "$": "q9cbpbeq"
       },
       "encapsulation": "shadow"
     },
     "host-shadow-dom": {
       "bundleIds": {
         "$": "leyhnp34"
+      },
+      "encapsulation": "shadow"
+    },
+    "mn-error": {
+      "bundleIds": {
+        "$": "hzsks8yc"
+      },
+      "encapsulation": "shadow"
+    },
+    "mn-label": {
+      "bundleIds": {
+        "$": "hzsks8yc"
+      },
+      "encapsulation": "shadow"
+    },
+    "mn-telephone": {
+      "bundleIds": {
+        "$": "hzsks8yc"
+      },
+      "encapsulation": "shadow"
+    },
+    "mn-text": {
+      "bundleIds": {
+        "$": "hzsks8yc"
       },
       "encapsulation": "shadow"
     },

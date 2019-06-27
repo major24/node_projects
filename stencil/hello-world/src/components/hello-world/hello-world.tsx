@@ -35,7 +35,7 @@ export class HelloWorld {
     console.log(this.name);
   }
 
- 
+
 
   handleSubmit(e) {
     e.preventDefault()
@@ -46,6 +46,7 @@ export class HelloWorld {
 
   handleChange(event) {
     this.searchItem = event.target.value;
+    console.log(event);
     console.log(this.searchItem);
   }
 
@@ -54,11 +55,11 @@ export class HelloWorld {
       <div>
         <h1>Hello World!</h1>
         <p>Name: {this.name}</p>
-        
+
         <div>
           <form onSubmit={(e) => this.handleSubmit(e)}>
-          Search: <input type="text" 
-              id="search" 
+          Search: <input type="text"
+              id="search"
               value={this.searchItem}
               onInput={(event) => this.handleChange(event)} /> (@state value)
 

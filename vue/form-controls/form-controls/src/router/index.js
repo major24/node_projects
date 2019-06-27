@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import HtmlControls from '@/components/HtmlControls'
 import UserPage from '@/components/UserPage'
 import DataBind from '@/components/DataBind'
+import ShowStencilComp from '@/components/ShowStencilComp'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/data-bind',
       name: 'DataBind',
       component: DataBind
+    },
+    {
+      path: '/show-stencil-comp',
+      name: 'ShowStencilComp',
+      component: ShowStencilComp
     }
   ]
 })

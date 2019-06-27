@@ -1,0 +1,1 @@
+// mncomponent: ES Module

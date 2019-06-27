@@ -1,0 +1,2 @@
+// mncomponent: Host Data, ES Module/es5 Target
+export var COMPONENTS = [["cx-activity","cx-activity",1,[["header",1,0,1,2]],1],["cx-workflow","cx-activity",1,[["header",1,0,1,2]],1],["cx-workflow-template","cx-activity",1,[["_activities",16],["_header",16],["activities",1,0,1,1],["header",1,0,1,2]],1],["my-component","my-component",1,[["first",1,0,1,2],["last",1,0,1,2],["middle",1,0,1,2]],1]]

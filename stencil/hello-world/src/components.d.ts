@@ -134,6 +134,15 @@ export namespace Components {
     'name'?: string;
   }
 
+  interface MnError {
+    'error': string;
+    'errors': [];
+  }
+  interface MnErrorAttributes extends StencilHTMLAttributes {
+    'error'?: string;
+    'errors'?: [];
+  }
+
   interface HelloWorld {
     'name': string;
     'showPrompt': () => void;
@@ -190,6 +199,13 @@ export namespace Components {
     'data'?: string;
   }
 
+  interface MnLabel {
+    'label': string;
+  }
+  interface MnLabelAttributes extends StencilHTMLAttributes {
+    'label'?: string;
+  }
+
   interface CtxPhoneDisplayContainer {
     'data': string;
   }
@@ -236,6 +252,29 @@ export namespace Components {
   interface PropStateTestAttributes extends StencilHTMLAttributes {
     'nameProp'?: string;
   }
+
+  interface MnTelephone {
+    'label': string;
+  }
+  interface MnTelephoneAttributes extends StencilHTMLAttributes {
+    'label'?: string;
+  }
+
+  interface MnText {
+    'error': string;
+    'label': string;
+    'placeHolder': string;
+    'value': string;
+    'width': string;
+  }
+  interface MnTextAttributes extends StencilHTMLAttributes {
+    'error'?: string;
+    'label'?: string;
+    'onMnChanged'?: (event: CustomEvent<string>) => void;
+    'placeHolder'?: string;
+    'value'?: string;
+    'width'?: string;
+  }
 }
 
 declare global {
@@ -256,6 +295,7 @@ declare global {
     'ChildComponentOne': Components.ChildComponentOne;
     'ParentChildContainer': Components.ParentChildContainer;
     'ParentComponent': Components.ParentComponent;
+    'MnError': Components.MnError;
     'HelloWorld': Components.HelloWorld;
     'PhoneDisplay': Components.PhoneDisplay;
     'PhoneEdit': Components.PhoneEdit;
@@ -263,12 +303,15 @@ declare global {
     'HostShadowDom': Components.HostShadowDom;
     'MyListItem': Components.MyListItem;
     'MyList': Components.MyList;
+    'MnLabel': Components.MnLabel;
     'CtxPhoneDisplayContainer': Components.CtxPhoneDisplayContainer;
     'CtxPhoneDisplay': Components.CtxPhoneDisplay;
     'CtxPhoneEdit': Components.CtxPhoneEdit;
     'CtxPhoneUpdatable': Components.CtxPhoneUpdatable;
     'CtxPostCode': Components.CtxPostCode;
     'PropStateTest': Components.PropStateTest;
+    'MnTelephone': Components.MnTelephone;
+    'MnText': Components.MnText;
   }
 
   interface StencilIntrinsicElements {
@@ -288,6 +331,7 @@ declare global {
     'child-component-one': Components.ChildComponentOneAttributes;
     'parent-child-container': Components.ParentChildContainerAttributes;
     'parent-component': Components.ParentComponentAttributes;
+    'mn-error': Components.MnErrorAttributes;
     'hello-world': Components.HelloWorldAttributes;
     'phone-display': Components.PhoneDisplayAttributes;
     'phone-edit': Components.PhoneEditAttributes;
@@ -295,12 +339,15 @@ declare global {
     'host-shadow-dom': Components.HostShadowDomAttributes;
     'my-list-item': Components.MyListItemAttributes;
     'my-list': Components.MyListAttributes;
+    'mn-label': Components.MnLabelAttributes;
     'ctx-phone-display-container': Components.CtxPhoneDisplayContainerAttributes;
     'ctx-phone-display': Components.CtxPhoneDisplayAttributes;
     'ctx-phone-edit': Components.CtxPhoneEditAttributes;
     'ctx-phone-updatable': Components.CtxPhoneUpdatableAttributes;
     'ctx-post-code': Components.CtxPostCodeAttributes;
     'prop-state-test': Components.PropStateTestAttributes;
+    'mn-telephone': Components.MnTelephoneAttributes;
+    'mn-text': Components.MnTextAttributes;
   }
 
 
@@ -400,6 +447,12 @@ declare global {
     new (): HTMLParentComponentElement;
   };
 
+  interface HTMLMnErrorElement extends Components.MnError, HTMLStencilElement {}
+  var HTMLMnErrorElement: {
+    prototype: HTMLMnErrorElement;
+    new (): HTMLMnErrorElement;
+  };
+
   interface HTMLHelloWorldElement extends Components.HelloWorld, HTMLStencilElement {}
   var HTMLHelloWorldElement: {
     prototype: HTMLHelloWorldElement;
@@ -442,6 +495,12 @@ declare global {
     new (): HTMLMyListElement;
   };
 
+  interface HTMLMnLabelElement extends Components.MnLabel, HTMLStencilElement {}
+  var HTMLMnLabelElement: {
+    prototype: HTMLMnLabelElement;
+    new (): HTMLMnLabelElement;
+  };
+
   interface HTMLCtxPhoneDisplayContainerElement extends Components.CtxPhoneDisplayContainer, HTMLStencilElement {}
   var HTMLCtxPhoneDisplayContainerElement: {
     prototype: HTMLCtxPhoneDisplayContainerElement;
@@ -478,6 +537,18 @@ declare global {
     new (): HTMLPropStateTestElement;
   };
 
+  interface HTMLMnTelephoneElement extends Components.MnTelephone, HTMLStencilElement {}
+  var HTMLMnTelephoneElement: {
+    prototype: HTMLMnTelephoneElement;
+    new (): HTMLMnTelephoneElement;
+  };
+
+  interface HTMLMnTextElement extends Components.MnText, HTMLStencilElement {}
+  var HTMLMnTextElement: {
+    prototype: HTMLMnTextElement;
+    new (): HTMLMnTextElement;
+  };
+
   interface HTMLElementTagNameMap {
     'ctx-address-container': HTMLCtxAddressContainerElement
     'ctx-address-edit': HTMLCtxAddressEditElement
@@ -495,6 +566,7 @@ declare global {
     'child-component-one': HTMLChildComponentOneElement
     'parent-child-container': HTMLParentChildContainerElement
     'parent-component': HTMLParentComponentElement
+    'mn-error': HTMLMnErrorElement
     'hello-world': HTMLHelloWorldElement
     'phone-display': HTMLPhoneDisplayElement
     'phone-edit': HTMLPhoneEditElement
@@ -502,12 +574,15 @@ declare global {
     'host-shadow-dom': HTMLHostShadowDomElement
     'my-list-item': HTMLMyListItemElement
     'my-list': HTMLMyListElement
+    'mn-label': HTMLMnLabelElement
     'ctx-phone-display-container': HTMLCtxPhoneDisplayContainerElement
     'ctx-phone-display': HTMLCtxPhoneDisplayElement
     'ctx-phone-edit': HTMLCtxPhoneEditElement
     'ctx-phone-updatable': HTMLCtxPhoneUpdatableElement
     'ctx-post-code': HTMLCtxPostCodeElement
     'prop-state-test': HTMLPropStateTestElement
+    'mn-telephone': HTMLMnTelephoneElement
+    'mn-text': HTMLMnTextElement
   }
 
   interface ElementTagNameMap {
@@ -527,6 +602,7 @@ declare global {
     'child-component-one': HTMLChildComponentOneElement;
     'parent-child-container': HTMLParentChildContainerElement;
     'parent-component': HTMLParentComponentElement;
+    'mn-error': HTMLMnErrorElement;
     'hello-world': HTMLHelloWorldElement;
     'phone-display': HTMLPhoneDisplayElement;
     'phone-edit': HTMLPhoneEditElement;
@@ -534,12 +610,15 @@ declare global {
     'host-shadow-dom': HTMLHostShadowDomElement;
     'my-list-item': HTMLMyListItemElement;
     'my-list': HTMLMyListElement;
+    'mn-label': HTMLMnLabelElement;
     'ctx-phone-display-container': HTMLCtxPhoneDisplayContainerElement;
     'ctx-phone-display': HTMLCtxPhoneDisplayElement;
     'ctx-phone-edit': HTMLCtxPhoneEditElement;
     'ctx-phone-updatable': HTMLCtxPhoneUpdatableElement;
     'ctx-post-code': HTMLCtxPostCodeElement;
     'prop-state-test': HTMLPropStateTestElement;
+    'mn-telephone': HTMLMnTelephoneElement;
+    'mn-text': HTMLMnTextElement;
   }
 
 

@@ -1,0 +1,27 @@
+{
+  "name": "coding_map_level_with_jest",
+  "version": "1.0.0",
+  "description": "test with chai",
+  "main": "server.js",
+  "scripts": {
+    "test:mocha": "./node_modules/.bin/mocha --reporter spec",
+    "test:jest": "jest",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^24.8.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "should": "^13.2.3"
+  },
+  "jest": {
+    "verbose": true
+  }
+}

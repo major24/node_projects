@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+ <script src="../../stencil/hello-world/www/build/mn-app.js"></script>
+</head>
+
+<body>
+    <div>
+        <span>Any word (not start with 'aaa')</span>
+        <mn-text
+            id="mytext"
+            onblur="onBlur(event)"
+            onInput="onChange(event)"
+        >
+        </mn-text>
+
+    </div>
+
+    <div>
+        <mn-text
+            id="mytext2"
+            place-holder="Enter your name"
+            onInput="onChange(event)"
+            label="First Name:"
+            width="large"
+        >
+        </mn-text>
+    </div>
+    <hr />
+
+    <div>
+        <mn-telephone id="myphone"></mn-telephone>
+    </div>
+
+
+
+
+    <script>
+        // add event listener to the client. Non JSX environment. For stencil child compoent,
+        // refer @Listen from stencil doc site
+
+        const mytext = document.getElementById('mytext');
+        mytext.addEventListener('mnChanged', (event) => {
+            console.log('in client js');
+            console.log(event);
+            console.log(event.detail);
+        });
+
+        function onBlur(e) {
+            console.log('onblur...', e);
+            console.log('>>>onblur: ', e.target.value);
+            // validate from client side..
+            if (e.target.value.startsWith('aaa')) {
+                console.log('i am here')
+                mytext.setAttribute('error', 'Invalid entry. Should not start with "aaa"');
+            }
+        }
+
+        function onChange(e) {
+            console.log('onchange...', e);
+        }
+
+        // phonenumber
+        const myphone = document.getElementById('myphone');
+        myphone.addEventListener('mnChanged', (event) => {
+            console.log('in client js phone');
+            console.log(event);
+            console.log(event.detail);
+        });
+
+    </script>
+</body>
+</html>

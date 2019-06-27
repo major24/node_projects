@@ -1,0 +1,1 @@
+// mncomponent: CommonJS Main

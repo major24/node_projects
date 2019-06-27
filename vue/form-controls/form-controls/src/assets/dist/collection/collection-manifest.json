@@ -1,0 +1,121 @@
+{
+  "components": [
+    {
+      "tag": "cx-activity",
+      "dependencies": [],
+      "componentClass": "Activity",
+      "componentPath": "components/workflow/activity.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/workflow/activity.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "header",
+          "type": "String",
+          "attr": "header"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "cx-workflow",
+      "dependencies": [],
+      "componentClass": "Workflow",
+      "componentPath": "components/workflow/workflow.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/workflow/workflow.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "header",
+          "type": "String",
+          "attr": "header"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "cx-workflow-template",
+      "dependencies": [
+        "cx-activity",
+        "cx-workflow"
+      ],
+      "componentClass": "WorkflowTemplate",
+      "componentPath": "components/workflow/workflow-template.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/workflow/workflow.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "activities",
+          "type": "Any",
+          "attr": "activities"
+        },
+        {
+          "name": "header",
+          "type": "String",
+          "attr": "header"
+        }
+      ],
+      "states": [
+        {
+          "name": "_activities"
+        },
+        {
+          "name": "_header"
+        }
+      ],
+      "shadow": true
+    },
+    {
+      "tag": "my-component",
+      "dependencies": [],
+      "componentClass": "MyComponent",
+      "componentPath": "components/my-component/my-component.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/my-component/my-component.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "first",
+          "type": "String",
+          "attr": "first"
+        },
+        {
+          "name": "last",
+          "type": "String",
+          "attr": "last"
+        },
+        {
+          "name": "middle",
+          "type": "String",
+          "attr": "middle"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.16.2",
+    "typescriptVersion": "3.2.2"
+  },
+  "bundles": []
+}

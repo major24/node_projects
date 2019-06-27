@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Demo</title>
+
+</head>
+
+<body>
+    <div>
+        <p>Test HTML 5 validation</p>
+
+        <form>
+            <label for="ZIP">ZIP : </label>
+            <input type="text" id="ZIP">
+            <label for="Country">Country : </label>
+            <select id="Country">
+                <option value="ch">Switzerland</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+                <option value="nl">The Netherlands</option>
+            </select>
+            <input type="submit" value="Validate">
+
+            <br /><br />
+            <span id="error">...</span>
+
+            <br />
+            <p>Number only</p>
+            <p><input type="text" onkeypress="return isNumberKey(event)" /></p>
+
+
+            <br />
+            <p>Phone Number (works with keypress and up and formats to (416) 777-9999</p>
+            <p><input type="text"
+                    id="myphone"
+                    maxlength="14"
+                    onkeypress="return isNumberKey(event)"
+                    onkeyup="formatNumber(event)"/>
+
+            <button type="button" onclick="copyNumToPhone()">Num Only</button>
+            <button type="button" onclick="copyNumToPhoneWithFmt()">Num with Fmt</button>
+            </p>
+
+            <br />
+            <button type="button" onclick="temptest()">Test</button>
+        </form>
+    </div>
+
+
+
+
+
+    <script>
+        function checkZIP() {
+        // For each country, defines the pattern that the ZIP has to follow
+        var constraints = {
+            ch : [ '^(CH-)?\\d{4}$', "Switzerland ZIPs must have exactly 4 digits: e.g. CH-1950 or 1950" ],
+            fr : [ '^(F-)?\\d{5}$' , "France ZIPs must have exactly 5 digits: e.g. F-75012 or 75012" ],
+            de : [ '^(D-)?\\d{5}$' , "Germany ZIPs must have exactly 5 digits: e.g. D-12345 or 12345" ],
+            nl : [ '^(NL-)?\\d{4}\\s*([A-RT-Z][A-Z]|S[BCE-RT-Z])$',
+                            "Nederland ZIPs must have exactly 4 digits, followed by 2 letters except SA, SD and SS" ]
+        };
+
+        // Read the country id
+        var country = document.getElementById("Country").value;
+
+        // Get the NPA field
+        var ZIPField = document.getElementById("ZIP");
+
+        // Build the constraint checker
+        var constraint = new RegExp(constraints[country][0], "");
+            console.log(constraint);
+
+        // debug
+        console.log(ZIPField.validity);
+
+        // Check it!
+        if (constraint.test(ZIPField.value)) {
+            // The ZIP follows the constraint, we use the ConstraintAPI to tell it
+            ZIPField.setCustomValidity("");
+            document.getElementById('error').innerText = "";
+        }
+        else {
+            // The ZIP doesn't follow the constraint, we use the ConstraintAPI to
+            // give a message about the format required for this country
+            ZIPField.setCustomValidity(constraints[country][1]);
+            document.getElementById('error').innerText = "Not a valid Zip (custom display)";
+        }
+    }
+
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+    function formatNumber(evt) {
+        // console.log(evt);
+        console.log(evt.target.value);
+        let v = evt.target.value;
+        let numbersOnly = v.replace(/\D/g,'');
+        console.log('>>', numbersOnly);
+
+        let a = numbersOnly.substring(0,3);
+        let b = numbersOnly.substring(3,6);
+        let c = numbersOnly.substring(6,10);
+        let res = '';
+
+        if (numbersOnly.length > 6) {
+            res = `(${a}) ${b}-${c}`;
+        }
+        if (numbersOnly.length > 4 && numbersOnly.length < 7) {
+            res = `(${a}) ${b}`;
+        }
+        if (numbersOnly.length == 4 ) {
+            res = `(${a}) ${b}`;
+        }
+        if (numbersOnly && numbersOnly.length < 4) {
+            res = `(${a}`;
+        }
+
+        console.log('>>>>>>', res);
+        evt.target.value = res;
+    }
+
+    function temptest() {
+        console.log('test');
+        let numbersOnly = '1234567777';
+        let a = numbersOnly.substring(0,3);
+        let b = numbersOnly.substring(3,6);
+        let c = numbersOnly.substring(6,10);
+
+        console.log(`a b c = ${a} ${b} ${c}`);
+
+        let res = '';
+
+        if (numbersOnly && numbersOnly.length < 4) {
+            res = `(${a}`;
+        }
+        if (numbersOnly.length == 4 ) {
+            res = `(${a}) ${b}`;
+        }
+        if (numbersOnly.length > 4 && numbersOnly.length < 7) {
+            res = `(${a}) ${b}`;
+        }
+        if (numbersOnly.length > 6) {
+            res = `(${a}) ${b}-${c}`;
+        }
+
+        console.log('>>>>>>', res);
+
+    }
+
+    function copyNumToPhone() {
+        const el = document.getElementById('myphone');
+        el.value = '4165557777';
+    }
+
+    function copyNumToPhoneWithFmt() {
+        const el = document.getElementById('myphone');
+        el.value = '(905) 555-9999';
+    }
+
+    window.onload = function () {
+        document.getElementById("Country").onchange = checkZIP;
+        document.getElementById("ZIP").oninput = checkZIP;
+    }
+
+
+
+    </script>
+</body>
+</html>
