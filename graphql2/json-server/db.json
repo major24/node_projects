@@ -1,0 +1,119 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "firstname": "John",
+      "lastname": "Papa"
+    },
+    {
+      "id": 2,
+      "firstname": "Steven",
+      "lastname": "Rayhan"
+    }
+  ],
+  "books": [
+    {
+      "id": 100,
+      "title": "A Beautiful Summer",
+      "authorId": 1
+    },
+    {
+      "id": 200,
+      "title": "Behind Enemy Lines",
+      "authorId": 2
+    },
+    {
+      "id": 101,
+      "title": "Angels are from Heaven",
+      "authorId": 1
+    },
+    {
+      "id": 102,
+      "title": "Blue sky",
+      "authorId": 1
+    }
+  ],
+  "movies": [
+    {
+      "id": 24,
+      "name": "Air Force One"
+    },
+    {
+      "id": 25,
+      "name": "Clear and Present Danger"
+    },
+    {
+      "id": 26,
+      "name": "Great Train Robbery"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 100,
+      "movieId": 24,
+      "stars": "* * * * * (5)"
+    },
+    {
+      "id": 101,
+      "movieId": 24,
+      "stars": "* * * (3)"
+    },
+    {
+      "id": 102,
+      "movieId": 25,
+      "stars": "* * * * (4)"
+    }
+  ],
+  "actors": [
+    {
+      "id": 200,
+      "name": "Roger Moore",
+      "friends": [201, 202]
+    },
+    {
+      "id": 201,
+      "name": "Tom Cruse",
+      "friends": [202, 203]
+    },
+    {
+      "id": 202,
+      "name": "Robert De Niro",
+      "friends": [200, 201, 203]
+    },
+    {
+      "id": 203,
+      "name": "Denzel Washington",
+      "friends": []
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customername": "Johana Mandana"
+    },
+    {
+      "customername": "Steve Raynold",
+      "id": 2
+    },
+    {
+      "customername": "andy r",
+      "id": 3
+    },
+    {
+      "customername": "andy r345",
+      "id": 4
+    },
+    {
+      "customername": "andy r345",
+      "id": 5
+    },
+    {
+      "customername": "andy",
+      "id": 6
+    },
+    {
+      "customername": "andy3453",
+      "id": 7
+    }
+  ]
+}

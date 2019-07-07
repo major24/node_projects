@@ -1,6 +1,3 @@
-const add = function(n1, n2) {
-  return n1 + n2;
-}
 
 const dispArray = function(arr) {
   for(let i=0; i<arr.length; i++) {
@@ -19,14 +16,6 @@ const isLeftEqual = (arr, row, col, value) => col > 0 && arr[row][col-1] === val
 const isUpEqual = (arr, row, col, value) => row > 0 && arr[row-1][col] === value;
 
 const isDownEqual = (arr, row, col, value) => row < arr[0].length-1 && arr[row+1][col] === value;
-// const isDownEqual = ((arr, row, col, value) => {
-//   console.log(arr[0]);
-//   console.log(row);
-//   console.log(col);
-//   console.log('>>>', arr[2][1]);
-//   // return true;
-//   return row < arr[0].length-1 && arr[row+1][col] === value
-// });
 
 const isArrayHasRowAndCol = ((arr, row, col) => {
   for(let i=0; i<arr.length; i++) {
@@ -44,15 +33,11 @@ const isArrayHasRowAndCol = ((arr, row, col) => {
 });
 
 const getMatchedCoordinates = (arrMap, initialRow, initialCol) => {
-  // console.log('>>>>>>>>');
-  // console.log(arrMap);
-  // console.log('>>' + initialRow + '----' + initialCol);
   let foundPts = [];
   // assign given co-ors to the empty array, our bucket to save matching co-ordinates
   foundPts[0] = [parseInt(initialRow), parseInt(initialCol)];
   // extract initial value from the map to be searched on..
   let level = arrMap[initialRow][initialCol];
-  // dispArray(foundPts);
 
   let i = 0;
   do {
@@ -61,14 +46,12 @@ const getMatchedCoordinates = (arrMap, initialRow, initialCol) => {
 
     if (isRightEqual(arrMap, row, col, level)) {
       if (!isArrayHasRowAndCol(foundPts, row, col+1)) {
-        // foundPts.push([row, col+1]);
         foundPts.push([parseInt(row), parseInt(col+1)]);
       }
     }
 
     if (isLeftEqual(arrMap, row, col, level)) {
       if (!isArrayHasRowAndCol(foundPts, row, col-1)) {
-        // foundPts.push([row, col-1]);
         foundPts.push([parseInt(row), parseInt(col-1)]);
       }
     }
@@ -79,9 +62,6 @@ const getMatchedCoordinates = (arrMap, initialRow, initialCol) => {
       }
     }
 
-    // console.log('bfr donw', arrMap);
-    // console.log(`>> row${row} col${col} lv${level}`);
-    // console.log('>>>++++', foundPts);
     if (isDownEqual(arrMap, row, col, level)) {
       if (!isArrayHasRowAndCol(foundPts, row+1, col)) {
         foundPts.push([parseInt(row+1), parseInt(col)]);
@@ -91,13 +71,10 @@ const getMatchedCoordinates = (arrMap, initialRow, initialCol) => {
     i++;
   } while (i < foundPts.length)
 
-  // console.log('>>>');
-  // console.log(foundPts);
   return foundPts;
 }
 
 module.exports = {
-  add: add,
   dispArray: dispArray,
   isRightEqual: isRightEqual,
   isLeftEqual: isLeftEqual,
